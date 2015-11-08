@@ -417,6 +417,7 @@
 				D0F398061BCCAB13002AE83E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0F398071BCCAB13002AE83E /* Build configuration list for PBXNativeTarget "Snatch N' GrabTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +426,7 @@
 				D0F398091BCCAB13002AE83E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
