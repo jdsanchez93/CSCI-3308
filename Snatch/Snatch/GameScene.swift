@@ -19,7 +19,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        self.backgroundColor = SKColor.blackColor()
+        self.backgroundColor = SKColor.whiteColor()
         
         mazeWorld = childNodeWithName("mazeWorld")
         heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position

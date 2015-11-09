@@ -61,20 +61,21 @@ class Hero:SKNode {
             
                 self.position = CGPoint(x: self.position.x + CGFloat(currentSpeed), y: self.position.y)
                 objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
+                objectSprite!.xScale = 1.0
             
             case .Left:
                 self.position = CGPoint(x: self.position.x - CGFloat(currentSpeed), y: self.position.y)
                 objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
-                //objectSprite!.xScale = CGFloat(-1.0)
+                objectSprite!.xScale = -1.0
             
             case .Up:
                 self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(currentSpeed))
                 objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
-                //objectSprite!.yScale = CGFloat(-1.0)
+                objectSprite!.xScale = 1.0
             case .Down:
                 self.position = CGPoint(x: self.position.x, y: self.position.y - CGFloat(currentSpeed))
                 objectSprite!.zRotation = CGFloat( degreesToRadians(90) )
-                objectSprite!.xScale = CGFloat(-1.0)
+                objectSprite!.xScale = -1.0
             case .None:
                 self.position = CGPoint(x: self.position.x, y: self.position.y)
             

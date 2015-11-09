@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>10923126-A24F-4E97-8773-CC58BC069F3A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Snatch</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E78FE934B9E18E9622CF11ADDE3415E2E8155219</key>
 		<string>https://github.com/jdsanchez93/CSCI-3308.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Snatch/Snatch.xcodeproj/project.xcworkspace</string>
+	<string>Snatch/Snatch.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E78FE934B9E18E9622CF11ADDE3415E2E8155219</key>
