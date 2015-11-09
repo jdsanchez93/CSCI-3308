@@ -19,16 +19,41 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
+        self.backgroundColor = SKColor.blackColor()
+        
         mazeWorld = childNodeWithName("mazeWorld")
         heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
         
         hero = Hero()
         hero!.position = heroLocation
         mazeWorld!.addChild(hero!)
-        hero!.currentSpeed = currentSpeed //will MAYBE be replaced at different levels
+        hero!.currentSpeed = currentSpeed //MAY be be replaced with different vals at different levels
+    
+        /* gestures */
         
         
-        
+        let waitAction:SKAction = SKAction.waitForDuration(0.2)
+        self.runAction(waitAction, completion: {
+            
+            let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:") )
+            swipeRight.direction = .Right
+            view.addGestureRecognizer(swipeRight)
+            
+            let swipeLeft:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedLeft:") )
+            swipeLeft.direction = .Left
+            view.addGestureRecognizer(swipeLeft)
+            
+            let swipeUp:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedUp:") )
+            swipeUp.direction = .Up
+            view.addGestureRecognizer(swipeUp)
+            
+            let swipeDown:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedDown:") )
+            swipeDown.direction = .Down
+            view.addGestureRecognizer(swipeDown)
+            
+            
+        }
+        )
         
         
     }
@@ -48,53 +73,31 @@ class GameScene: SKScene {
         hero!.update()
         
     }
+    
+    func swipedRight(sender:UISwipeGestureRecognizer){
+       hero!.goRight()
+       
+        
+    }
+    
+    func swipedLeft(sender:UISwipeGestureRecognizer){
+        hero!.goLeft()
+        
+        
+    }
+    
+    func swipedUp(sender:UISwipeGestureRecognizer){
+        hero!.goUp()
+        
+        
+    }
+    
+    func swipedDown(sender:UISwipeGestureRecognizer){
+        hero!.goDown()
+        
+        
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
