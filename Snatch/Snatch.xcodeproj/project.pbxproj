@@ -18,6 +18,7 @@
 		6386A4231BEFF8A800C3417E /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4221BEFF8A800C3417E /* moving.atlas */; };
 		6386A4261BEFFDBA00C3417E /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4251BEFFDBA00C3417E /* Hero.swift */; };
 		6386A42A1BF0068200C3417E /* walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4291BF0068200C3417E /* walking.atlas */; };
+		63EFC62F1BF0258700480CDE /* adversaryWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 63EFC62E1BF0258700480CDE /* adversaryWalk.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		6386A4221BEFF8A800C3417E /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = moving.atlas; path = ../../../Downloads/Maze_Game_Assets/moving.atlas; sourceTree = "<group>"; };
 		6386A4251BEFFDBA00C3417E /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		6386A4291BF0068200C3417E /* walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = walking.atlas; path = ../../../Desktop/walking.atlas; sourceTree = "<group>"; };
+		63EFC62E1BF0258700480CDE /* adversaryWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = adversaryWalk.atlas; path = ../../../Desktop/adversaryWalk.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		6386A4241BEFF8C900C3417E /* Texture_Atlases */ = {
 			isa = PBXGroup;
 			children = (
+				63EFC62E1BF0258700480CDE /* adversaryWalk.atlas */,
 				6386A4291BF0068200C3417E /* walking.atlas */,
 				6386A4221BEFF8A800C3417E /* moving.atlas */,
 			);
@@ -217,6 +220,7 @@
 			files = (
 				6386A40D1BEFF68F00C3417E /* LaunchScreen.xib in Resources */,
 				6386A42A1BF0068200C3417E /* walking.atlas in Resources */,
+				63EFC62F1BF0258700480CDE /* adversaryWalk.atlas in Resources */,
 				6386A40A1BEFF68F00C3417E /* Images.xcassets in Resources */,
 				6386A4011BEFF68F00C3417E /* GameScene.sks in Resources */,
 				6386A4231BEFF8A800C3417E /* moving.atlas in Resources */,
@@ -439,6 +443,7 @@
 				6386A41E1BEFF68F00C3417E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6386A41F1BEFF68F00C3417E /* Build configuration list for PBXNativeTarget "SnatchTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +452,7 @@
 				6386A4211BEFF68F00C3417E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
