@@ -30,7 +30,7 @@ class Hero:SKNode {
     /* properties */
     
     var currentSpeed:Float = 5
-    var currentDirection = Direction.Down
+    var currentDirection = Direction.None
     var desiredDirection = DesiredDirection.None
     
     var movingAnimation:SKAction?
@@ -49,12 +49,31 @@ class Hero:SKNode {
         addChild(objectSprite!)
         
         setUpAnimation()
+        runAnimation()
+        
+        let largerSize:CGSize = CGSize(width: objectSprite!.size.width * 1.2, height: objectSprite!.size.height * 1.2)
+        
+        /* Setting physics for hero
+        */
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
+        self.physicsBody!.friction = 0 //slippery when interacting
+        self.physicsBody!.dynamic = true // whether or not it's part of overall physics simulation
+        self.physicsBody!.restitution = 0 //not bouncy
+        self.physicsBody!.allowsRotation = false // whether or not the physics body can rotate
+        
+        self.physicsBody!.categoryBitMask = BodyType.hero.rawValue
+        //if contactTestBitMask is 0 then it will not collide with anything. Default: collides with everything
+        self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.star.rawValue
+        
+        
      
     
     }
     
     func update(){
         
+        /** This function will update the character etc every frame, changes when the screen is swyped
+        */
         
         switch currentDirection{
             case .Right:
@@ -124,7 +143,7 @@ class Hero:SKNode {
             atlasTextures.insert(texture, atIndex:i)
         }
         
-        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/30, resize: true, restore:false )
+        let atlasAnimation = SKAction.animateWithTextures(atlasTextures, timePerFrame: 1.0/12, resize: true, restore:false )
         movingAnimation = SKAction.repeatActionForever(atlasAnimation)
         
     }
