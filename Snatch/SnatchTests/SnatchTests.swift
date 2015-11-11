@@ -9,13 +9,13 @@
 import SpriteKit
 import UIKit
 import XCTest
+import Snatch
 
 
 class SnatchTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -28,13 +28,47 @@ class SnatchTests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-    func testHero() {
+
+    func testDown() {
         
-        var hero:Hero?
-        hero!.goDown()
-        XCTAssertEqual(Direction.Down, hero!.currentDirection)
+        let hero = Hero()
+        hero.goDown()
+        XCTAssertEqual(Direction.Down, hero.currentDirection)
         
     }
+    
+    func testRight() {
+        
+        let hero = Hero()
+        hero.goRight()
+        XCTAssertEqual(Direction.Right, hero.currentDirection)
+        
+    }
+    
+    func testUp() {
+        
+        let hero = Hero()
+        hero.goUp()
+        XCTAssertEqual(Direction.Up, hero.currentDirection)
+        
+    }
+    
+    func testLeft() {
+        
+        let hero = Hero()
+        hero.goLeft()
+        XCTAssertEqual(Direction.Left, hero.currentDirection)
+        
+    }
+    
+    func testDegreestoRadians() {
+        
+        let hero = Hero()
+        var radians = 30/180 * Double(M_PI)
+        XCTAssertEqual(hero.degreesToRadians(30), radians, "degrees did not convert correctly")
+        
+    }
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -42,5 +76,5 @@ class SnatchTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }
