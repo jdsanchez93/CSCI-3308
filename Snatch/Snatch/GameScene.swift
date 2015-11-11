@@ -2,7 +2,6 @@
 //  GameScene.swift
 //  Snatch
 //
-//  Created by Nicolette Goulart on 11/8/15.
 //  Copyright (c) 2015 Team Rocket. All rights reserved.
 //
 
@@ -33,12 +32,13 @@ enum BodyType:UInt32 {
 
 
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate{
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
+    var useTMXFiles:Bool = false
     
     
     
@@ -47,7 +47,8 @@ class GameScene: SKScene {
         self.backgroundColor = SKColor.whiteColor()
         view.showsPhysics = true
         
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         mazeWorld = childNodeWithName("mazeWorld")
         heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
@@ -84,7 +85,47 @@ class GameScene: SKScene {
         )
         
         
+        
+        /* set Up based on TMX or SKS */
+        
+        if (useTMXFiles == true) {
+            println("setup with tmx")
+            
+        }
+        else {
+            println("setup with SKS")
+            setUpBoundaryFromSKS()
+        }
     }
+    
+    
+    
+    
+    func setUpBoundaryFromSKS() {
+        
+        mazeWorld!.enumerateChildNodesWithName("boundary"){
+            node, stop in
+            
+            if let boundary = node as? SKSpriteNode{ //let's me refer to node as boundary from now on
+                
+                println("found boundary")
+                let rect:CGRect = CGRect(origin: boundary.position, size: boundary.size)
+                let newBoundary:Boundary = Boundary(fromSKSWithRect: rect)
+                self.mazeWorld!.addChild(newBoundary)
+                newBoundary.position = boundary.position
+                
+                boundary.removeFromParent()
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
@@ -122,6 +163,39 @@ class GameScene: SKScene {
     
     func swipedDown(sender:UISwipeGestureRecognizer){
         hero!.goDown()
+        
+        
+    }
+    
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        switch(contactMask) {
+            
+            case BodyType.hero.rawValue | BodyType.boundary.rawValue:
+                println("ran into wall")
+            
+            default:
+                return
+            
+        }
+        
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+     
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        
+        switch(contactMask) {
+            
+        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
+            println("is not touching wall")
+            
+        default:
+            return
+        }
         
         
     }

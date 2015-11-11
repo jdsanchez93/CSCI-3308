@@ -62,7 +62,7 @@ class Hero:SKNode {
         self.physicsBody!.allowsRotation = false // whether or not the physics body can rotate
         
         self.physicsBody!.categoryBitMask = BodyType.hero.rawValue
-        //if contactTestBitMask is 0 then it will not collide with anything. Default: collides with everything
+        //if collisionBitMask is 0 then it will not collide with anything. Default: collides with everything
         self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.star.rawValue
         
         

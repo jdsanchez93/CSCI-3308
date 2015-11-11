@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  Snatch
 //
-//  Created by Nicolette Goulart on 11/8/15.
 //  Copyright (c) 2015 Team Rocket. All rights reserved.
 //
 
