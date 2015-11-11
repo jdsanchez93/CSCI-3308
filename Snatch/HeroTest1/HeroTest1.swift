@@ -1,17 +1,15 @@
 //
-//  SnatchTests.swift
-//  SnatchTests
+//  HeroTest1.swift
+//  HeroTest1
 //
-//  Created by Nicolette Goulart on 11/8/15.
+//  Created by Nicolette Goulart on 11/10/15.
 //  Copyright (c) 2015 Team Rocket. All rights reserved.
 //
 
-import SpriteKit
 import UIKit
 import XCTest
 
-
-class SnatchTests: XCTestCase {
+class HeroTest1: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -26,14 +24,6 @@ class SnatchTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
-    }
-    
-    func testHero() {
-        
-        var hero:Hero?
-        hero!.goDown()
-        XCTAssertEqual(Direction.Down, hero!.currentDirection)
-        
     }
     
     func testPerformanceExample() {

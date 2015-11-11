@@ -34,6 +34,76 @@
                ReferencedContainer = "container:Snatch.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6981BF2E188006E6532"
+               BuildableName = "HeroTest.xctest"
+               BlueprintName = "HeroTest"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6A71BF2E216006E6532"
+               BuildableName = "BoundaryTests.xctest"
+               BlueprintName = "BoundaryTests"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6B61BF2E24D006E6532"
+               BuildableName = "GameSceneTests.xctest"
+               BlueprintName = "GameSceneTests"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6CA1BF2EE02006E6532"
+               BuildableName = "HeroTest1.xctest"
+               BlueprintName = "HeroTest1"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6DD1BF2F0B2006E6532"
+               BuildableName = "testingtest.xctest"
+               BlueprintName = "testingtest"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +119,16 @@
                BlueprintIdentifier = "6386A4111BEFF68F00C3417E"
                BuildableName = "SnatchTests.xctest"
                BlueprintName = "SnatchTests"
+               ReferencedContainer = "container:Snatch.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6386E6DD1BF2F0B2006E6532"
+               BuildableName = "testingtest.xctest"
+               BlueprintName = "testingtest"
                ReferencedContainer = "container:Snatch.xcodeproj">
             </BuildableReference>
          </TestableReference>

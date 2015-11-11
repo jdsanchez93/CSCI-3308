@@ -17,14 +17,54 @@
 		6386A4081BEFF68F00C3417E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4061BEFF68F00C3417E /* Main.storyboard */; };
 		6386A40A1BEFF68F00C3417E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4091BEFF68F00C3417E /* Images.xcassets */; };
 		6386A40D1BEFF68F00C3417E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6386A40B1BEFF68F00C3417E /* LaunchScreen.xib */; };
-		6386A4191BEFF68F00C3417E /* SnatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4181BEFF68F00C3417E /* SnatchTests.swift */; };
 		6386A4231BEFF8A800C3417E /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4221BEFF8A800C3417E /* moving.atlas */; };
 		6386A4261BEFFDBA00C3417E /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4251BEFFDBA00C3417E /* Hero.swift */; };
 		6386E6941BF2D4E9006E6532 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386E6931BF2D4E9006E6532 /* Boundary.swift */; };
+		6386E6D71BF2EFEB006E6532 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4251BEFFDBA00C3417E /* Hero.swift */; };
+		6386E6E91BF2F0C4006E6532 /* SnatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4181BEFF68F00C3417E /* SnatchTests.swift */; };
+		6386E6EA1BF2F0E1006E6532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A3FE1BEFF68F00C3417E /* AppDelegate.swift */; };
+		6386E6EB1BF2F0E8006E6532 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4021BEFF68F00C3417E /* GameScene.swift */; };
+		6386E6EC1BF2F0EB006E6532 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386E6931BF2D4E9006E6532 /* Boundary.swift */; };
+		6386E6ED1BF2F0F0006E6532 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4041BEFF68F00C3417E /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		6386A4131BEFF68F00C3417E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A3F81BEFF68F00C3417E;
+			remoteInfo = Snatch;
+		};
+		6386E69F1BF2E188006E6532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A3F81BEFF68F00C3417E;
+			remoteInfo = Snatch;
+		};
+		6386E6AE1BF2E216006E6532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A3F81BEFF68F00C3417E;
+			remoteInfo = Snatch;
+		};
+		6386E6BD1BF2E24E006E6532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A3F81BEFF68F00C3417E;
+			remoteInfo = Snatch;
+		};
+		6386E6D11BF2EE02006E6532 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A3F81BEFF68F00C3417E;
+			remoteInfo = Snatch;
+		};
+		6386E6E41BF2F0B2006E6532 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6386A3F11BEFF68F00C3417E /* Project object */;
 			proxyType = 1;
@@ -52,6 +92,11 @@
 		6386A4221BEFF8A800C3417E /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = moving.atlas; path = ../../../Downloads/Maze_Game_Assets/moving.atlas; sourceTree = "<group>"; };
 		6386A4251BEFFDBA00C3417E /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		6386E6931BF2D4E9006E6532 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
+		6386E6991BF2E188006E6532 /* HeroTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6386E6A81BF2E216006E6532 /* BoundaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6386E6B71BF2E24D006E6532 /* GameSceneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameSceneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6386E6CB1BF2EE02006E6532 /* HeroTest1.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroTest1.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6386E6DE1BF2F0B2006E6532 /* testingtest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testingtest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +108,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		6386A40F1BEFF68F00C3417E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6961BF2E188006E6532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6A51BF2E216006E6532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6B41BF2E24D006E6532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6C81BF2EE02006E6532 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6DB1BF2F0B2006E6532 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -86,6 +166,11 @@
 			children = (
 				6386A3F91BEFF68F00C3417E /* Snatch.app */,
 				6386A4121BEFF68F00C3417E /* SnatchTests.xctest */,
+				6386E6991BF2E188006E6532 /* HeroTest.xctest */,
+				6386E6A81BF2E216006E6532 /* BoundaryTests.xctest */,
+				6386E6B71BF2E24D006E6532 /* GameSceneTests.xctest */,
+				6386E6CB1BF2EE02006E6532 /* HeroTest1.xctest */,
+				6386E6DE1BF2F0B2006E6532 /* testingtest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +267,96 @@
 			productReference = 6386A4121BEFF68F00C3417E /* SnatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6386E6981BF2E188006E6532 /* HeroTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6386E6A11BF2E188006E6532 /* Build configuration list for PBXNativeTarget "HeroTest" */;
+			buildPhases = (
+				6386E6951BF2E188006E6532 /* Sources */,
+				6386E6961BF2E188006E6532 /* Frameworks */,
+				6386E6971BF2E188006E6532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6386E6A01BF2E188006E6532 /* PBXTargetDependency */,
+			);
+			name = HeroTest;
+			productName = HeroTest;
+			productReference = 6386E6991BF2E188006E6532 /* HeroTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6386E6A71BF2E216006E6532 /* BoundaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6386E6B01BF2E216006E6532 /* Build configuration list for PBXNativeTarget "BoundaryTests" */;
+			buildPhases = (
+				6386E6A41BF2E216006E6532 /* Sources */,
+				6386E6A51BF2E216006E6532 /* Frameworks */,
+				6386E6A61BF2E216006E6532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6386E6AF1BF2E216006E6532 /* PBXTargetDependency */,
+			);
+			name = BoundaryTests;
+			productName = BoundaryTests;
+			productReference = 6386E6A81BF2E216006E6532 /* BoundaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6386E6B61BF2E24D006E6532 /* GameSceneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6386E6BF1BF2E24E006E6532 /* Build configuration list for PBXNativeTarget "GameSceneTests" */;
+			buildPhases = (
+				6386E6B31BF2E24D006E6532 /* Sources */,
+				6386E6B41BF2E24D006E6532 /* Frameworks */,
+				6386E6B51BF2E24D006E6532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6386E6BE1BF2E24E006E6532 /* PBXTargetDependency */,
+			);
+			name = GameSceneTests;
+			productName = GameSceneTests;
+			productReference = 6386E6B71BF2E24D006E6532 /* GameSceneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6386E6CA1BF2EE02006E6532 /* HeroTest1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6386E6D31BF2EE02006E6532 /* Build configuration list for PBXNativeTarget "HeroTest1" */;
+			buildPhases = (
+				6386E6C71BF2EE02006E6532 /* Sources */,
+				6386E6C81BF2EE02006E6532 /* Frameworks */,
+				6386E6C91BF2EE02006E6532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6386E6D21BF2EE02006E6532 /* PBXTargetDependency */,
+			);
+			name = HeroTest1;
+			productName = HeroTest1;
+			productReference = 6386E6CB1BF2EE02006E6532 /* HeroTest1.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6386E6DD1BF2F0B2006E6532 /* testingtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6386E6E61BF2F0B2006E6532 /* Build configuration list for PBXNativeTarget "testingtest" */;
+			buildPhases = (
+				6386E6DA1BF2F0B2006E6532 /* Sources */,
+				6386E6DB1BF2F0B2006E6532 /* Frameworks */,
+				6386E6DC1BF2F0B2006E6532 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6386E6E51BF2F0B2006E6532 /* PBXTargetDependency */,
+			);
+			name = testingtest;
+			productName = testingtest;
+			productReference = 6386E6DE1BF2F0B2006E6532 /* testingtest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,6 +370,26 @@
 						CreatedOnToolsVersion = 6.3.2;
 					};
 					6386A4111BEFF68F00C3417E = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6386A3F81BEFF68F00C3417E;
+					};
+					6386E6981BF2E188006E6532 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6386A3F81BEFF68F00C3417E;
+					};
+					6386E6A71BF2E216006E6532 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6386A3F81BEFF68F00C3417E;
+					};
+					6386E6B61BF2E24D006E6532 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6386A3F81BEFF68F00C3417E;
+					};
+					6386E6CA1BF2EE02006E6532 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 6386A3F81BEFF68F00C3417E;
+					};
+					6386E6DD1BF2F0B2006E6532 = {
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = 6386A3F81BEFF68F00C3417E;
 					};
@@ -215,6 +410,11 @@
 			targets = (
 				6386A3F81BEFF68F00C3417E /* Snatch */,
 				6386A4111BEFF68F00C3417E /* SnatchTests */,
+				6386E6981BF2E188006E6532 /* HeroTest */,
+				6386E6A71BF2E216006E6532 /* BoundaryTests */,
+				6386E6B61BF2E24D006E6532 /* GameSceneTests */,
+				6386E6CA1BF2EE02006E6532 /* HeroTest1 */,
+				6386E6DD1BF2F0B2006E6532 /* testingtest */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +442,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6386E6971BF2E188006E6532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6A61BF2E216006E6532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6B51BF2E24D006E6532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6C91BF2EE02006E6532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6DC1BF2F0B2006E6532 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -261,7 +496,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6386A4191BEFF68F00C3417E /* SnatchTests.swift in Sources */,
+				6386E6EA1BF2F0E1006E6532 /* AppDelegate.swift in Sources */,
+				6386E6E91BF2F0C4006E6532 /* SnatchTests.swift in Sources */,
+				6386E6EB1BF2F0E8006E6532 /* GameScene.swift in Sources */,
+				6386E6D71BF2EFEB006E6532 /* Hero.swift in Sources */,
+				6386E6ED1BF2F0F0006E6532 /* GameViewController.swift in Sources */,
+				6386E6EC1BF2F0EB006E6532 /* Boundary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6951BF2E188006E6532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6A41BF2E216006E6532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6B31BF2E24D006E6532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6C71BF2EE02006E6532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386E6DA1BF2F0B2006E6532 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +547,31 @@
 			isa = PBXTargetDependency;
 			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
 			targetProxy = 6386A4131BEFF68F00C3417E /* PBXContainerItemProxy */;
+		};
+		6386E6A01BF2E188006E6532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
+			targetProxy = 6386E69F1BF2E188006E6532 /* PBXContainerItemProxy */;
+		};
+		6386E6AF1BF2E216006E6532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
+			targetProxy = 6386E6AE1BF2E216006E6532 /* PBXContainerItemProxy */;
+		};
+		6386E6BE1BF2E24E006E6532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
+			targetProxy = 6386E6BD1BF2E24E006E6532 /* PBXContainerItemProxy */;
+		};
+		6386E6D21BF2EE02006E6532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
+			targetProxy = 6386E6D11BF2EE02006E6532 /* PBXContainerItemProxy */;
+		};
+		6386E6E51BF2F0B2006E6532 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A3F81BEFF68F00C3417E /* Snatch */;
+			targetProxy = 6386E6E41BF2F0B2006E6532 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -382,9 +682,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Snatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 			};
 			name = Debug;
 		};
@@ -392,6 +694,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Snatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +735,176 @@
 			};
 			name = Release;
 		};
+		6386E6A21BF2E188006E6532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HeroTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Debug;
+		};
+		6386E6A31BF2E188006E6532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HeroTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Release;
+		};
+		6386E6B11BF2E216006E6532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BoundaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Debug;
+		};
+		6386E6B21BF2E216006E6532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BoundaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Release;
+		};
+		6386E6C01BF2E24E006E6532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GameSceneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Debug;
+		};
+		6386E6C11BF2E24E006E6532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GameSceneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Release;
+		};
+		6386E6D41BF2EE02006E6532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HeroTest1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Debug;
+		};
+		6386E6D51BF2EE02006E6532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HeroTest1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Release;
+		};
+		6386E6E71BF2F0B2006E6532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = testingtest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Debug;
+		};
+		6386E6E81BF2F0B2006E6532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = testingtest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snatch.app/Snatch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -461,6 +934,46 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6386E6A11BF2E188006E6532 /* Build configuration list for PBXNativeTarget "HeroTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6386E6A21BF2E188006E6532 /* Debug */,
+				6386E6A31BF2E188006E6532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6386E6B01BF2E216006E6532 /* Build configuration list for PBXNativeTarget "BoundaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6386E6B11BF2E216006E6532 /* Debug */,
+				6386E6B21BF2E216006E6532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6386E6BF1BF2E24E006E6532 /* Build configuration list for PBXNativeTarget "GameSceneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6386E6C01BF2E24E006E6532 /* Debug */,
+				6386E6C11BF2E24E006E6532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6386E6D31BF2EE02006E6532 /* Build configuration list for PBXNativeTarget "HeroTest1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6386E6D41BF2EE02006E6532 /* Debug */,
+				6386E6D51BF2EE02006E6532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6386E6E61BF2F0B2006E6532 /* Build configuration list for PBXNativeTarget "testingtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6386E6E71BF2F0B2006E6532 /* Debug */,
+				6386E6E81BF2F0B2006E6532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
