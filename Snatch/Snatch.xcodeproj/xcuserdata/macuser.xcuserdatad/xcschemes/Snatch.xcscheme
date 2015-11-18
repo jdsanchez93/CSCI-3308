@@ -122,16 +122,6 @@
                ReferencedContainer = "container:Snatch.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6386E6DD1BF2F0B2006E6532"
-               BuildableName = "testingtest.xctest"
-               BlueprintName = "testingtest"
-               ReferencedContainer = "container:Snatch.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

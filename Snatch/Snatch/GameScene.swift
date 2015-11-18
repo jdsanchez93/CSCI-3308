@@ -61,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         /* gestures */
         
         
-        let waitAction:SKAction = SKAction.waitForDuration(0.2)
+        let waitAction:SKAction = SKAction.waitForDuration(0.2) //this is in seconds...
         self.runAction(waitAction, completion: {
             
             let swipeRight:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: Selector("swipedRight:") )

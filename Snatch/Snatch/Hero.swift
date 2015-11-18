@@ -37,12 +37,12 @@ class Hero:SKNode {
     var objectSprite:SKSpriteNode?
     
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) { //this handes the error if the init of coder hasn't been implemented
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init (){
-        super.init()
+    override init (){ //override the init for SKNode
+        super.init() //init a normal SKNode, with additional stuff befow
         println("hero was added")
         
         objectSprite = SKSpriteNode(imageNamed: "snatchHero")
