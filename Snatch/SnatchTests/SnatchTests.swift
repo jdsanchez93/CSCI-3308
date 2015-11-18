@@ -64,6 +64,21 @@ class SnatchTests: XCTestCase {
         
     }
 
+    func testHeroInit() {
+        let hero = Hero()
+        XCTAssert(hero.currentSpeed == 5, "Initial speed incorrect")
+        XCTAssert(hero.currentDirection == Direction.None, "Initial direction incorrect")
+        XCTAssert(hero.desiredDirection == DesiredDirection.None, "Initial desired direction incorrect")
+        
+    }
+    
+    func testBoundaryInit() {
+        let rect = CGRectMake(0, 0, 10, 20)
+        let b = Boundary(fromSKSWithRect: rect)
+        //println(b.children.first)
+        XCTAssert(b.children.count == 1, "Boundary did not correctly create SKShapeNode")
+        
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
