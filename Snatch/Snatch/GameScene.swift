@@ -51,6 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5) //anchors the scene to the middle of the maze to start
+        
         if (useTMXFiles == true) {
             println("setup with tmx")
             self.enumerateChildNodesWithName("*"){
@@ -249,6 +251,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         }
     }
+    
+    
+    override func didSimulatePhysics() {
+        if (heroIsDead == false){
+            
+            self.centerOnNode(hero!)
+            
+        }
+    }
+    
+    
+    func centerOnNode(node:SKNode){
+        
+        let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
+        mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)  //centers the world around the character.
+        
+        
+    }
+    
+    
+    
     
 }
 
