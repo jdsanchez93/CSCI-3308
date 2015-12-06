@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A5657F71C138DC200D28EE6 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5657F61C138DC200D28EE6 /* LoginScreen.swift */; };
+		3A5657F81C138DC200D28EE6 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5657F61C138DC200D28EE6 /* LoginScreen.swift */; };
+		3A5657F91C138EDB00D28EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4061BEFF68F00C3417E /* Main.storyboard */; };
+		3A5657FB1C13B07C00D28EE6 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5657FA1C13B07C00D28EE6 /* MenuScreen.swift */; };
+		3A5657FC1C13B07C00D28EE6 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5657FA1C13B07C00D28EE6 /* MenuScreen.swift */; };
+		3A5658011C14348000D28EE6 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5658001C14348000D28EE6 /* RegisterScreen.swift */; };
+		3A5658021C14348000D28EE6 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5658001C14348000D28EE6 /* RegisterScreen.swift */; };
 		6326CF611BF14BA5005C4F55 /* jewel.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6326CF601BF14BA5005C4F55 /* jewel.atlas */; };
 		6326CF631BF14BAC005C4F55 /* walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6326CF621BF14BAC005C4F55 /* walking.atlas */; };
 		6326CF651BF14BB3005C4F55 /* adversaryWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6326CF641BF14BB3005C4F55 /* adversaryWalk.atlas */; };
@@ -38,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A5657F61C138DC200D28EE6 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		3A5657FA1C13B07C00D28EE6 /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		3A5658001C14348000D28EE6 /* RegisterScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		6326CF601BF14BA5005C4F55 /* jewel.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = jewel.atlas; path = SnatchNGrab_Atlases/jewel.atlas; sourceTree = "<group>"; };
 		6326CF621BF14BAC005C4F55 /* walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = walking.atlas; path = SnatchNGrab_Atlases/walking.atlas; sourceTree = "<group>"; };
 		6326CF641BF14BB3005C4F55 /* adversaryWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = adversaryWalk.atlas; path = SnatchNGrab_Atlases/adversaryWalk.atlas; sourceTree = "<group>"; };
@@ -103,6 +113,9 @@
 				6386E6931BF2D4E9006E6532 /* Boundary.swift */,
 				6386A4251BEFFDBA00C3417E /* Hero.swift */,
 				6386A4041BEFF68F00C3417E /* GameViewController.swift */,
+				3A5657F61C138DC200D28EE6 /* LoginScreen.swift */,
+				3A5657FA1C13B07C00D28EE6 /* MenuScreen.swift */,
+				3A5658001C14348000D28EE6 /* RegisterScreen.swift */,
 				6386A4061BEFF68F00C3417E /* Main.storyboard */,
 				6386A4091BEFF68F00C3417E /* Images.xcassets */,
 				6386A4241BEFF8C900C3417E /* Texture_Atlases */,
@@ -243,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5657F91C138EDB00D28EE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +268,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6386A4031BEFF68F00C3417E /* GameScene.swift in Sources */,
+				3A5657FB1C13B07C00D28EE6 /* MenuScreen.swift in Sources */,
 				6386A4051BEFF68F00C3417E /* GameViewController.swift in Sources */,
 				6386A3FF1BEFF68F00C3417E /* AppDelegate.swift in Sources */,
+				3A5658011C14348000D28EE6 /* RegisterScreen.swift in Sources */,
 				6386A4261BEFFDBA00C3417E /* Hero.swift in Sources */,
 				6386E6941BF2D4E9006E6532 /* Boundary.swift in Sources */,
+				3A5657F71C138DC200D28EE6 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,10 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6386E6EA1BF2F0E1006E6532 /* AppDelegate.swift in Sources */,
+				3A5657FC1C13B07C00D28EE6 /* MenuScreen.swift in Sources */,
 				6386E6E91BF2F0C4006E6532 /* SnatchTests.swift in Sources */,
 				6386E6EB1BF2F0E8006E6532 /* GameScene.swift in Sources */,
+				3A5658021C14348000D28EE6 /* RegisterScreen.swift in Sources */,
 				6386E6D71BF2EFEB006E6532 /* Hero.swift in Sources */,
 				6386E6EC1BF2F0EB006E6532 /* Boundary.swift in Sources */,
+				3A5657F81C138DC200D28EE6 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
