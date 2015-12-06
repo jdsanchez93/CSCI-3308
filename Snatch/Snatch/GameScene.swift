@@ -32,26 +32,48 @@ enum BodyType:UInt32 {
 
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate{
+class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = false
+    var useTMXFiles:Bool = true
+    var heroIsDead:Bool = false
     
     
     
     override func didMoveToView(view: SKView) {
         
-        self.backgroundColor = SKColor.whiteColor()
+        self.backgroundColor = SKColor.grayColor()
         view.showsPhysics = true
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
-        mazeWorld = childNodeWithName("mazeWorld")
-        heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
+        if (useTMXFiles == true) {
+            println("setup with tmx")
+            self.enumerateChildNodesWithName("*"){
+                node, stop in
+                
+                node.removeFromParent()
+            }
+            
+            
+            mazeWorld = SKNode()
+            addChild(mazeWorld!)
+            
+        }
+        else {
+            
+            mazeWorld = childNodeWithName("mazeWorld")
+            heroLocation = mazeWorld!.childNodeWithName("StartingPoint")!.position
+            
+        }
+
+        
+        /* hero and maze*/
+       
         
         hero = Hero()
         hero!.position = heroLocation
@@ -88,14 +110,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         /* set Up based on TMX or SKS */
         
-        if (useTMXFiles == true) {
-            println("setup with tmx")
+        if (useTMXFiles == false) {
+            setUpBoundaryFromSKS()
             
         }
-        else {
-            println("setup with SKS")
-            setUpBoundaryFromSKS()
+        else{
+            parseTMXFileWithName("MazeType1")
+    
         }
+       
     }
     
     
@@ -199,6 +222,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         
     }
+    
+    
+    func parseTMXFileWithName(name:NSString){
+        let path:String = NSBundle.mainBundle().pathForResource(name as String, ofType: ".tmx")!
+        let data:NSData = NSData(contentsOfFile: path)!
+        let parser:NSXMLParser = NSXMLParser(data: data)
+        
+        parser.delegate = self
+        parser.parse()
+    
+    }
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+        
+        if (elementName == "object"){
+            
+            let type:AnyObject? = attributeDict["type"]
+            
+            if (type as? String == "Boundary"){
+                
+                let newBoundary:Boundary = Boundary(theDict: attributeDict)
+                    mazeWorld!.addChild(newBoundary)
+                
+            }
+            
+        }
+    }
+    
 }
 
 
