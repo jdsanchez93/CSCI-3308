@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="10" tileheight="10" nextobjectid="32">
+ <objectgroup name="Object Layer 1">
+  <object id="1" name="Boundary" x="100" y="0" width="400" height="50"/>
+  <object id="4" name="Boundary" x="350" y="100" width="50" height="200"/>
+  <object id="6" name="Boundary" x="0" y="100" width="300" height="50"/>
+  <object id="7" name="Boundary" x="0" y="0" width="50" height="100"/>
+  <object id="8" name="Boundary" x="50" y="200" width="50" height="100"/>
+  <object id="9" name="Boundary" x="150" y="200" width="50" height="150"/>
+  <object id="10" name="Boundary" x="250" y="200" width="50" height="100"/>
+  <object id="11" name="Boundary" x="0" y="350" width="200" height="50"/>
+  <object id="12" name="Boundary" x="450" y="50" width="50" height="120"/>
+  <object id="13" name="Boundary" x="250" y="350" width="200" height="50"/>
+  <object id="14" name="Boundary" x="450" y="220" width="50" height="80"/>
+  <object id="15" name="Boundary" x="500" y="350" width="300" height="50"/>
+  <object id="16" name="Boundary" x="550" y="150" width="50" height="200"/>
+  <object id="17" name="Boundary" x="550" y="0" width="50" height="100"/>
+  <object id="18" name="Boundary" x="400" y="400" width="50" height="80"/>
+  <object id="19" name="Boundary" x="400" y="530" width="50" height="120"/>
+  <object id="20" name="Boundary" x="150" y="450" width="200" height="50"/>
+  <object id="21" name="Boundary" x="50" y="550" width="300" height="50"/>
+  <object id="22" name="Boundary" x="0" y="450" width="100" height="50"/>
+  <object id="23" name="Boundary" x="220" y="500" width="50" height="50"/>
+  <object id="24" name="Boundary" x="0" y="650" width="70" height="50"/>
+  <object id="25" name="Boundary" x="120" y="650" width="70" height="50"/>
+  <object id="26" name="Boundary" x="400" y="650" width="50" height="50"/>
+  <object id="27" name="Boundary" x="240" y="650" width="110" height="50"/>
+  <object id="28" name="Boundary" x="120" y="700" width="70" height="120"/>
+  <object id="29" name="Boundary" x="240" y="700" width="50" height="100"/>
+  <object id="30" name="Boundary" x="400" y="700" width="50" height="150"/>
+  <object id="31" name="Boundary" x="340" y="750" width="60" height="50"/>
+ </objectgroup>
+</map>
