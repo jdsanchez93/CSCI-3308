@@ -4,10 +4,10 @@
   <image source="Snatch/Images.xcassets/Cop1.imageset/copWalk1.png" trans="0906ff" width="23" height="36"/>
  </tileset>
  <objectgroup name="Object Layer 1">
-  <object id="1" name="Boundary" type="Boundary" x="110" y="0" width="391" height="60"/>
-  <object id="4" name="Boundary" type="Boundary" x="350" y="110" width="50" height="190"/>
-  <object id="6" name="Boundary" type="Boundary" x="0" y="110" width="300" height="40"/>
-  <object id="8" name="Boundary" type="Boundary" x="50" y="200" width="50" height="100"/>
+  <object id="1" type="Boundary" x="110" y="0" width="391" height="60"/>
+  <object id="4" type="Boundary" x="350" y="110" width="50" height="190"/>
+  <object id="6" type="Boundary" x="0" y="110" width="300" height="40"/>
+  <object id="8" type="Boundary" x="50" y="200" width="50" height="100"/>
   <object id="9" name="Boundary" type="Boundary" x="150" y="200" width="50" height="150"/>
   <object id="10" name="Boundary" type="Boundary" x="250" y="200" width="50" height="100"/>
   <object id="11" name="Boundary" type="Boundary" x="0" y="350" width="200" height="50"/>

@@ -247,7 +247,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 let newBoundary:Boundary = Boundary(theDict: attributeDict)
                     mazeWorld!.addChild(newBoundary)
                 
+            } else if (type as? String == "Portal") {
+                let theName:String = attributeDict["name"] as AnyObject? as! String
+                
+                if (theName == "StartingPoint"){
+                    
+                    let theX:String = attributeDict["x"] as AnyObject? as! String //as! because swift is weird...
+                    let x:Int = theX.toInt()! //added ! because... it breaks otherwise
+                    
+                    let theY:String = attributeDict["y"] as AnyObject? as! String
+                    let y:Int = theY.toInt()!
+                    
+                    hero!.position = CGPoint(x: x, y: y * -1) //reverse the y value since we're pulling it from xml file
+                    heroLocation = hero!.position
+
+                    
+                }
+                
             }
+            
+            
             
         }
     }

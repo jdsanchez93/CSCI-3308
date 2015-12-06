@@ -33,7 +33,7 @@ class Hero:SKNode {
     var currentDirection = Direction.None
     var desiredDirection = DesiredDirection.None
     
-    var movingAnimation:SKAction?
+    var movingAnimation:SKAction = SKAction()
     var objectSprite:SKSpriteNode?
     
     
