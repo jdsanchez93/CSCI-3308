@@ -1,7 +1,5 @@
 <?php
 
-require("Conn.php");
-require("MySQLDao.php");
 
 $username = htmlentities($_POST["username"]);
 $password = htmlentities($_POST["password"]);
@@ -17,22 +15,31 @@ if(empty($username) || empty($password))
 
 $secure_password = md5($password);
 
-$dao = new MySQLDao();
-$dao->openConnection();
-$userDetails = $dao->getUserDetailsWithPassword($username,$secure_password);
+try {
+	$conn = new pdo('mysql:unix_socket=/cloudsql/caramel-howl-113305:snatch;dbname=snatch', 'root', '');
+} catch(PDOException $ex) {
+	die(json_encode(
+    	array('status' => 'error', 'message' => 'Unable to connect')
+    	)
+	);
+}
 
-if(!empty($userDetails))
-{
+$returnValue = array();
+$sql = "select count(*) from users where username='" . $username . "' and password='" .$secure_password . "'";
+
+$result = $conn->query($sql);
+
+if ($result->fetchColumn() == 1) {
 	$returnValue["status"] = "Success";
 	$returnValue["message"] = "User is registered";
 	echo json_encode($returnValue);
 } else {
-
 	$returnValue["status"] = "error";
 	$returnValue["message"] = "User is not found";
 	echo json_encode($returnValue);
 }
 
-$dao->closeConnection();
+
+$conn = null;
 
 ?>

@@ -7,19 +7,12 @@ var $conn = null;
 var $dbname = null;
 var $result = null;
 
-function __construct() {
-$this->dbhost = Conn::$dbhost;
-$this->dbuser = Conn::$dbuser;
-$this->dbpass = Conn::$dbpass;
-$this->dbname = Conn::$dbname;
-}
-
 public function openConnection() {
 	try {
     	$conn = new pdo('mysql:unix_socket=/cloudsql/caramel-howl-113305:snatch;dbname=snatch', 'root', '');
     } catch(PDOException $ex) {
     	die(json_encode(
-        	array('outcome' => false, 'message' => 'Unable to connect')
+        	array('status' => 'error', 'message' => 'Unable to connect')
         	)
     	);
     }
@@ -37,9 +30,14 @@ public function closeConnection() {
 public function getUserDetails($username)
 {
 	$returnValue = array();
+	$returnValue["status"] = "error";
+	$returnValue["message"] = "Missing required field";
+	echo json_encode($returnValue);
+	return $returnValue;
 	$sql = "select count(*) from users where username='" . $username . "'";
 
 	$result = $this->conn->query($sql);
+	
 	if ($result != null && ($result->fetchColumn() >= 1)) {
 		$returnValue["exists"] = "yes";
 	}
