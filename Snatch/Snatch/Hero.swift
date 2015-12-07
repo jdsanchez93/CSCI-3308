@@ -39,6 +39,18 @@ class Hero:SKNode {
     var movingAnimation:SKAction = SKAction()
     var objectSprite:SKSpriteNode?
     
+    var downBlocked:Bool = false
+    var upBlocked:Bool = false
+    var leftBlocked:Bool = false
+    var rightBlocked:Bool = false
+    
+    var nodeUp:SKNode?
+    var nodeDown:SKNode?
+    var nodeLeft:SKNode?
+    var nodeRight:SKNode?
+    
+    var buffer:Int = 25
+    
     
     required init?(coder aDecoder: NSCoder) { //this handes the error if the init of coder hasn't been implemented
         fatalError("init(coder:) has not been implemented")
@@ -68,6 +80,25 @@ class Hero:SKNode {
         ///if collisionBitMask is 0 then it will not collide with anything. Default: collides with everything
         self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.jewel.rawValue
         
+        nodeUp = SKNode()
+        addChild(nodeUp!)
+        nodeUp!.position = CGPoint(x: 0, y: buffer)
+        createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
+        
+        nodeDown = SKNode()
+        addChild(nodeDown!)
+        nodeDown!.position = CGPoint(x: 0, y: -buffer)
+        createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
+        
+        nodeRight = SKNode()
+        addChild(nodeRight!)
+        nodeRight!.position = CGPoint(x: buffer, y: 0)
+        createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        
+        nodeLeft = SKNode()
+        addChild(nodeLeft!)
+        nodeLeft!.position = CGPoint(x: -buffer, y: 0)
+        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
         
      
     
@@ -123,6 +154,12 @@ class Hero:SKNode {
         */
         currentDirection = .Up
         runAnimation()
+        
+        createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
+        createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
+        createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        
     }
     
     func goDown(){
@@ -131,6 +168,11 @@ class Hero:SKNode {
         */
         currentDirection = .Down
         runAnimation()
+        
+        createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
+        createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
+        createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
     }
     
     func goRight(){
@@ -140,6 +182,11 @@ class Hero:SKNode {
         currentDirection = .Right
         runAnimation()
         
+        createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
+        createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
+        createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        
     }
     
     func goLeft(){
@@ -148,6 +195,11 @@ class Hero:SKNode {
         */
         currentDirection = .Left
         runAnimation()
+        
+        createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
+        createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
+        createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
     }
     
     func setUpAnimation(){
@@ -174,9 +226,7 @@ class Hero:SKNode {
         *  Animates the hero to make it look like he's running
         */
         objectSprite!.runAction(movingAnimation)
-        
-        
-        
+     
     }
     
     func stopAnimation(){
@@ -184,10 +234,186 @@ class Hero:SKNode {
         *  Stop the running animation
         */
         objectSprite!.removeAllActions()
-    
-    
-    
     }
+    
+    
+    func createUpSensorPhysicsBody(#whileTravellingUpOrDown:Bool){
+        
+        var size:CGSize = CGSizeZero
+        
+        if (whileTravellingUpOrDown == true){
+            
+            size = CGSize(width: 32, height: 9)
+        } else {
+            size = CGSize(width: 32.4, height: 36)
+            
+        }
+        
+        nodeUp!.physicsBody = nil ///to get rid of any existing physics body
+        let bodyUp:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
+        nodeUp!.physicsBody = bodyUp
+        nodeUp!.physicsBody?.categoryBitMask = BodyType.sensorUp.rawValue
+        nodeUp!.physicsBody?.collisionBitMask = 0
+        nodeUp!.physicsBody?.contactTestBitMask = BodyType.boundary.rawValue
+        nodeUp!.physicsBody?.pinned = true //pinned to its parent nodes body
+        nodeUp!.physicsBody?.allowsRotation = false
+        
+        
+        
+    }
+    
+    func createDownSensorPhysicsBody(#whileTravellingUpOrDown:Bool){
+        
+        var size:CGSize = CGSizeZero
+        
+        if (whileTravellingUpOrDown == true){
+            
+            size = CGSize(width: 32, height: 9)
+        } else {
+            size = CGSize(width: 32.4, height: 36)
+            
+        }
+        
+        nodeDown!.physicsBody = nil ///to get rid of any existing physics body
+        let bodyDown:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
+        nodeDown!.physicsBody = bodyDown
+        nodeDown!.physicsBody?.categoryBitMask = BodyType.sensorDown.rawValue
+        nodeDown!.physicsBody?.collisionBitMask = 0
+        nodeDown!.physicsBody?.contactTestBitMask = BodyType.boundary.rawValue
+        nodeDown!.physicsBody?.pinned = true //pinned to its parent nodes body
+        nodeDown!.physicsBody?.allowsRotation = false
+        
+        
+        
+    }
+    
+    func createLeftSensorPhysicsBody(#whileTravellingRightOrLeft:Bool){
+        
+        var size:CGSize = CGSizeZero
+        
+        if (whileTravellingRightOrLeft == true){
+            
+            size = CGSize(width: 9, height: 32)
+        } else {
+            size = CGSize(width: 36, height: 32.4)
+            
+        }
+        
+        nodeLeft!.physicsBody = nil ///to get rid of any existing physics body
+        let bodyLeft:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
+        nodeLeft!.physicsBody = bodyLeft
+        nodeLeft!.physicsBody?.categoryBitMask = BodyType.sensorLeft.rawValue
+        nodeLeft!.physicsBody?.collisionBitMask = 0
+        nodeLeft!.physicsBody?.contactTestBitMask = BodyType.boundary.rawValue
+        nodeLeft!.physicsBody?.pinned = true //pinned to its parent nodes body
+        nodeLeft!.physicsBody?.allowsRotation = false
+        
+        
+        
+    }
+    
+
+    
+    func createRightSensorPhysicsBody(#whileTravellingRightOrLeft:Bool){
+        
+        var size:CGSize = CGSizeZero
+        
+        if (whileTravellingRightOrLeft == true){
+            
+            size = CGSize(width: 9, height: 32)
+        } else {
+            size = CGSize(width: 36, height: 32.4)
+            
+        }
+        
+        nodeRight!.physicsBody = nil ///to get rid of any existing physics body
+        let bodyRight:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
+        nodeRight!.physicsBody = bodyRight
+        nodeRight!.physicsBody?.categoryBitMask = BodyType.sensorRight.rawValue
+        nodeRight!.physicsBody?.collisionBitMask = 0
+        nodeRight!.physicsBody?.contactTestBitMask = BodyType.boundary.rawValue
+        nodeRight!.physicsBody?.pinned = true //pinned to its parent nodes body
+        nodeRight!.physicsBody?.allowsRotation = false
+ 
+    }
+
+    //MARK: Functions for Sensor Contact: Ititated
+    
+    func upSensorContactStart(){
+        
+        upBlocked = true
+        
+        if (currentDirection == Direction.Up){
+            currentDirection = Direction.None
+            self.physicsBody?.dynamic = false
+            stopAnimation()
+        }
+        
+    }
+    
+    func downSensorContactStart(){
+        
+        downBlocked = true
+        
+        if (currentDirection == Direction.Down){
+            currentDirection = Direction.None
+            self.physicsBody?.dynamic = false
+            stopAnimation()
+        }
+        
+    }
+    
+    func leftSensorContactStart(){
+        leftBlocked = true
+        
+        if (currentDirection == Direction.Left){
+            currentDirection = Direction.None
+            self.physicsBody?.dynamic = false
+            stopAnimation()
+        }
+        
+        
+    }
+    
+    func rightSensorContactStart(){
+        rightBlocked = true
+        
+        if (currentDirection == Direction.Right){
+            currentDirection = Direction.None
+            self.physicsBody?.dynamic = false
+            stopAnimation()
+        }
+        
+        
+    }
+    
+    
+    //MARK: Functions for Sensor Contact: Ended
+    
+    func upSensorContactEnd(){
+        println("up contact ended")
+        
+        
+    }
+    
+    func downSensorContactEnd(){
+        
+        println("down contact ended")
+        
+    }
+    
+    func leftSensorContactEnd(){
+        println("left contact ended")
+        
+        
+    }
+    
+    func rightSensorContactEnd(){
+        println("right contact ended")
+        
+        
+    }
+    
     
 }
 
