@@ -9,5 +9,14 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
+- url: /
   script: main.php
+
+- url: /MySQLDao.php
+  script: MySQLDao.php
+
+- url: /userLogin.php
+  script: userLogin.php
+
+- url: /userRegister.php
+  script: userRegister.php
