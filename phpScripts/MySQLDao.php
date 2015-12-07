@@ -15,9 +15,10 @@ $this->dbname = Conn::$dbname;
 }
 
 public function openConnection() {
-$this->conn = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
-if (mysqli_connect_errno())
-echo new Exception("Could not establish connection with database");
+	$this->conn = new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
+	if (mysqli_connect_errno()) {
+		echo new Exception("Could not establish connection with database");
+	}
 }
 
 public function getConnection() {
@@ -29,10 +30,10 @@ if ($this->conn != null)
 $this->conn->close();
 }
 
-public function getUserDetails($email)
+public function getUserDetails($username)
 {
 $returnValue = array();
-$sql = "select * from users where email='" . $email . "'";
+$sql = "select * from users where username='" . $username . "'";
 
 $result = $this->conn->query($sql);
 if ($result != null && (mysqli_num_rows($result) >= 1)) {
@@ -44,10 +45,10 @@ $returnValue = $row;
 return $returnValue;
 }
 
-public function getUserDetailsWithPassword($email, $userPassword)
+public function getUserDetailsWithPassword($username, $userPassword)
 {
 $returnValue = array();
-$sql = "select username,email from users where email='" . $email . "' and password='" .$userPassword . "'";
+$sql = "select username from users where username='" . $username . "' and password='" .$userPassword . "'";
 
 $result = $this->conn->query($sql);
 if ($result != null && (mysqli_num_rows($result) >= 1)) {
@@ -59,18 +60,21 @@ $returnValue = $row;
 return $returnValue;
 }
 
-public function registerUser($email, $password)
+public function registerUser($email, $username, $password)
 {
-$sql = "insert into users set email=?, password=?";
-$statement = $this->conn->prepare($sql);
+	$initialScore = "0";
+	$sql = "insert into users (email, username, password, highscore) values (?,?,?,?)";
+	$statement = $this->conn->prepare($sql);
 
-if (!$statement)
-throw new Exception($statement->error);
+	if (!$statement) {
+		throw new Exception($statement->error);
+		
+	}
 
-$statement->bind_param("ss", $email, $password);
-$returnValue = $statement->execute();
+	$statement->bind_param("ssss", $email, $username, $password, $initialScore);
+	$returnValue = $statement->execute();
 
-return $returnValue;
+	return $returnValue;
 }
 
 }

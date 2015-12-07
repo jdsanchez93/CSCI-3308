@@ -10,12 +10,19 @@ import UIKit
 
 class LoginScreen: UIViewController {
     
-    @IBOutlet weak var userEmailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        let value = UIInterfaceOrientation.Portrait.rawValue;
+        UIDevice.currentDevice().setValue(value, forKey: "orientation");
+        
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true;
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,20 +31,52 @@ class LoginScreen: UIViewController {
     }
     
     @IBAction func loginButtonTapped(sender: AnyObject) {
-        let userEmail = userEmailTextField.text;
+        let username = usernameTextField.text;
         let password = passwordTextField.text;
+    
+        //Make sure password isn't empty
+        if(password.isEmpty) {
+            return;
+        }
         
-        let userEmailStored = NSUserDefaults.standardUserDefaults().stringForKey("userEmail");
-        let passwordStored = NSUserDefaults.standardUserDefaults().stringForKey("password");
+        //Send user data to server
+        let myUrl = NSURL(string: "http://localhost:8000/userLogin.php");
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
         
-        if(userEmailStored == userEmail) {
-            if(passwordStored == password) {
-                //Login is successful
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn");
-                NSUserDefaults.standardUserDefaults().synchronize();
-                self.dismissViewControllerAnimated(true, completion: nil);
+        let postString = "username=\(username)&password=\(password)";
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        //Execute http post request
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if(error != nil) {
+                println("error=\(error)");
+                return;
+            }
+            
+            var err: NSError?;
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as? NSDictionary;
+            
+            if let parseJSON = json {
+                var resultValue = parseJSON["status"] as? String;
+                println("result: \(resultValue)");
+                
+                if(resultValue == "Success") {
+                    //Login is successful
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn");
+                    NSUserDefaults.standardUserDefaults().synchronize();
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil);
+                }
+                
             }
         }
+        
+        task.resume();
+        
     }
     
     

@@ -48,11 +48,11 @@ class RegisterScreen: UIViewController {
         }
         
         //Send user data to server
-        let myUrl = NSURL(string: "http://localhost:8000");
+        let myUrl = NSURL(string: "http://localhost:8000/userRegister.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         
-        let postString = "email=\(userEmail)&password=\(password)";
+        let postString = "email=\(userEmail)&username=\(username)&password=\(password)";
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -67,6 +67,8 @@ class RegisterScreen: UIViewController {
             
             var err: NSError?;
             var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as? NSDictionary;
+            
+            println("json=\(json)");
             
             if let parseJSON = json {
                 var resultValue = parseJSON["status"] as? String;

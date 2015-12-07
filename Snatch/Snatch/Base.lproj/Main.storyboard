@@ -89,17 +89,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYk-YC-E8L">
-                                <rect key="frame" x="16" y="137" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4FR-zb-ncF">
-                                <rect key="frame" x="16" y="166" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V89-hl-ZRc">
                                 <rect key="frame" x="16" y="204" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -112,18 +101,13 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repeat Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APn-Ua-HEX">
-                                <rect key="frame" x="23" y="273" width="288" height="21"/>
+                                <rect key="frame" x="16" y="271" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lu6-bh-sg7">
-                                <rect key="frame" x="16" y="302" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-5d-pzW">
-                                <rect key="frame" x="223" y="361" width="81" height="30"/>
+                                <rect key="frame" x="223" y="392" width="81" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <state key="normal" title="Register">
@@ -134,17 +118,36 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkZ-49-6IL">
-                                <rect key="frame" x="16" y="361" width="81" height="30"/>
+                                <rect key="frame" x="16" y="392" width="81" height="30"/>
                                 <color key="backgroundColor" red="0.1454505039" green="0.54872944909999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="R7R-dC-hOT" kind="presentation" id="0ZS-QL-QQm"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxb-E6-3n2">
                                 <rect key="frame" x="16" y="99" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-Ho-wYF">
+                                <rect key="frame" x="16" y="137" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jxu-b9-Lyo">
+                                <rect key="frame" x="16" y="166" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lu6-bh-sg7">
+                                <rect key="frame" x="16" y="300" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,7 +157,7 @@
                         <outlet property="passwordTextField" destination="3En-WK-nGj" id="jF0-YY-TqF"/>
                         <outlet property="repeatPasswordTextField" destination="Lu6-bh-sg7" id="2XO-MR-BlW"/>
                         <outlet property="userEmailTextField" destination="xxb-E6-3n2" id="WIQ-fL-47B"/>
-                        <outlet property="usernameTextField" destination="4FR-zb-ncF" id="dqz-aw-19N"/>
+                        <outlet property="usernameTextField" destination="Jxu-b9-Lyo" id="aVP-AO-6Ur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2V-FA-ful" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,17 +182,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcz-8j-97L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcz-8j-97L">
                                 <rect key="frame" x="16" y="64" width="275" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email:" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Prk-Gu-3kB">
-                                <rect key="frame" x="16" y="93" width="275" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhN-wn-Bq2">
                                 <rect key="frame" x="16" y="141" width="275" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -233,13 +231,18 @@
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="37p-G8-8Vx"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Prk-Gu-3kB">
+                                <rect key="frame" x="16" y="93" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="passwordTextField" destination="A3Z-Fj-JLv" id="Raj-fF-2fz"/>
-                        <outlet property="userEmailTextField" destination="Prk-Gu-3kB" id="qhv-nt-PZs"/>
+                        <outlet property="usernameTextField" destination="Prk-Gu-3kB" id="peX-cH-nR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzL-4C-rRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -255,7 +258,7 @@
                         <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -286,5 +289,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="37p-G8-8Vx"/>
+        <segue reference="0ZS-QL-QQm"/>
     </inferredMetricsTieBreakers>
 </document>
