@@ -10,7 +10,8 @@ import SpriteKit
 
 
 enum BodyType:UInt32 {
-    //how things will interact with one another
+    /*!@brief how things will interact with one another
+     */
     
     case hero = 1
     case boundary = 2
@@ -18,7 +19,7 @@ enum BodyType:UInt32 {
     case sensorDown = 8
     case sensorRight = 16
     case sensorLeft = 32
-    case star = 64
+    case jewel = 64
     case enemy = 128
     case boundary2 = 256
     
@@ -33,17 +34,24 @@ enum BodyType:UInt32 {
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
+    /*!@brief Class, create the game scene
+    */
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = true
+    var useTMXFiles:Bool = false
     var heroIsDead:Bool = false
     
     
     
     override func didMoveToView(view: SKView) {
+        /*!@brief set up starting location, maze, enemy locations
+        *
+        *
+        *
+        */
         
         self.backgroundColor = SKColor.grayColor()
         view.showsPhysics = true
@@ -114,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         if (useTMXFiles == false) {
             setUpBoundaryFromSKS()
+            setUpJewelsFromSKS()
             
         }
         else{
@@ -127,11 +136,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
     func setUpBoundaryFromSKS() {
+        /*!@brief Set up Boundary using GameScene.sks
+        */
         
         mazeWorld!.enumerateChildNodesWithName("boundary"){
+            /*!
+            * @brief find all nodes with specific name
+            * @param name to look for
+            */
             node, stop in
             
-            if let boundary = node as? SKSpriteNode{ //let's me refer to node as boundary from now on
+            if let boundary = node as? SKSpriteNode{ ///let's me refer to node as boundary from now on
                 
                 println("found boundary")
                 let rect:CGRect = CGRect(origin: boundary.position, size: boundary.size)
@@ -148,14 +163,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
     
     
+    func setUpJewelsFromSKS() {
+        /*!
+        * @brief Set up jewels from GameScene.sks
+        */
+        
+        mazeWorld!.enumerateChildNodesWithName("jewel"){
+            /*!
+            * @brief find all nodes with specific name
+            * @param name to look for
+            */
+            node, stop in
+            
+            if let jewel = node as? SKSpriteNode{ ///let's me refer to node as jewel from now on
+                let newJewel:Jewel = Jewel()
+                self.mazeWorld!.addChild(newJewel)
+                newJewel.position = jewel.position
+                
+                jewel.removeFromParent()
+                
+            }
+            
+        }
+        
+    }
+
+    
     
     
     
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
+        /*!
+        * @brief Called when a touch begins
+        */
         
-        for touch in (touches as! Set<UITouch>) {
+        for touch in (touches as! Set<UITouch>) { //find the touch location
             let location = touch.locationInNode(self)
             
         
@@ -163,44 +206,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        /*!
+        * @brief called to update scene before each scene is rendered
+        * @param Current time
+        */
         hero!.update()
         
     }
     
     func swipedRight(sender:UISwipeGestureRecognizer){
+        /*!
+        * @brief Send hero to the right when swiped right
+        * @param right swipe gesture
+        */
        hero!.goRight()
-       
-        
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
+        /*!
+        * @brief Send hero to the left when swiped right
+        * @param right swipe gesture
+        */
         hero!.goLeft()
-        
-        
     }
     
     func swipedUp(sender:UISwipeGestureRecognizer){
+        /*!
+        * @brief Send hero up when swiped right
+        * @param right swipe gesture
+        */
         hero!.goUp()
-        
-        
     }
     
     func swipedDown(sender:UISwipeGestureRecognizer){
+        /*!
+        * @brief Send hero down when swiped right
+        * @param right swipe gesture
+        */
         hero!.goDown()
-        
-        
     }
     
     
     func didBeginContact(contact: SKPhysicsContact) {
+        /*!
+        * @brief Called when hero comes into contact with object
+        * @param Type of contact
+        */
         
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         switch(contactMask) {
             
             case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-                println("ran into wall")
+                println("ran into wall") ///print if hero runs into a boundary
             
             default:
                 return
@@ -210,13 +268,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
     
     func didEndContact(contact: SKPhysicsContact) {
+        /*!
+        * @brief Called when hero ends contact with object
+        * @param Type of contact
+        */
      
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         switch(contactMask) {
             
         case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-            println("is not touching wall")
+            println("is not touching wall") ///print after hero leaves wall
             
         default:
             return
@@ -227,6 +289,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
     func parseTMXFileWithName(name:NSString){
+        /*!
+        * @brief parse a tmx file to creat the maze
+        * @param name of tmx file
+        */
         let path:String = NSBundle.mainBundle().pathForResource(name as String, ofType: ".tmx")!
         let data:NSData = NSData(contentsOfFile: path)!
         let parser:NSXMLParser = NSXMLParser(data: data)
@@ -237,12 +303,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+        /*!
+        * @brief parses the file, creates different objects
+        * @param All kinds...
+        */
         
         if (elementName == "object"){
             
             let type:AnyObject? = attributeDict["type"]
             
-            if (type as? String == "Boundary"){
+            if (type as? String == "Boundary"){ ///looks for an Boundary object in the .tmx file
                 
                 let newBoundary:Boundary = Boundary(theDict: attributeDict)
                     mazeWorld!.addChild(newBoundary)
@@ -252,13 +322,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 if (theName == "StartingPoint"){
                     
-                    let theX:String = attributeDict["x"] as AnyObject? as! String //as! because swift is weird...
-                    let x:Int = theX.toInt()! //added ! because... it breaks otherwise
+                    let theX:String = attributeDict["x"] as AnyObject? as! String ///as! because swift is weird...
+                    let x:Int = theX.toInt()!
                     
                     let theY:String = attributeDict["y"] as AnyObject? as! String
                     let y:Int = theY.toInt()!
                     
-                    hero!.position = CGPoint(x: x, y: y * -1) //reverse the y value since we're pulling it from xml file
+                    hero!.position = CGPoint(x: x, y: y * -1) ///reverse the y value since it is reversed in xml file
                     heroLocation = hero!.position
 
                     
@@ -273,6 +343,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
     override func didSimulatePhysics() {
+        /*!
+        * @brief Center on hero, as long as hero is not dead
+        */
         if (heroIsDead == false){
             
             self.centerOnNode(hero!)
@@ -282,9 +355,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
     func centerOnNode(node:SKNode){
+        /*!
+        * @brief Center on a specific node as point coords in this case the hero
+        * @param Node
+        */
         
         let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: mazeWorld!)
-        mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)  //centers the world around the character.
+        mazeWorld!.position = CGPoint(x: mazeWorld!.position.x - cameraPositionInScene.x, y: mazeWorld!.position.y - cameraPositionInScene.y)  ///centers the world around the character.
         
         
     }

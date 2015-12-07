@@ -16,6 +16,10 @@ class Boundary:SKNode {
 }
 
     init (fromSKSWithRect rect:CGRect){
+        /*!
+        * @brief init from an SKS
+        * @param CGRect
+        */
         
         super.init()
         
@@ -28,11 +32,15 @@ class Boundary:SKNode {
     
     
     init (theDict:Dictionary<NSObject, AnyObject> ) {
+        /*!
+        * @brief init from a dictionary when using a .tmx file
+        * @param Dict<NSObject, AnyObject>
+        */
         
         super.init()
 
-        let theX:String = theDict["x"] as AnyObject? as! String //as! because swift is weird...
-        let x:Int = theX.toInt()! //added ! because... it breaks otherwise
+        let theX:String = theDict["x"] as AnyObject? as! String ///as! because swift is weird...
+        let x:Int = theX.toInt()!
         
         let theY:String = theDict["y"] as AnyObject? as! String
         let y:Int = theY.toInt()!
@@ -43,7 +51,7 @@ class Boundary:SKNode {
         let theHeight:String = theDict["height"] as AnyObject? as! String
         let height:Int = theHeight.toInt()!
         
-        let location:CGPoint = CGPoint(x: x, y: y * -1) //use -1 because the grid is set up with 0,0 at the top left instead of the bottom left.
+        let location:CGPoint = CGPoint(x: x, y: y * -1) ///use -1 because the grid is set up with 0,0 at the top left instead of the bottom left.
         let size:CGSize = CGSize(width: width, height: height)
         
         self.position = CGPoint(x: location.x + (size.width / 2), y: (location.y - size.height/2))
@@ -55,6 +63,10 @@ class Boundary:SKNode {
     }
 
     func createBoundary(rect:CGRect){
+        /*!
+        * @brief Create a boundary, set physics of boundary
+        * @param CGRect
+        */
         
         let shape = SKShapeNode(rect: rect, cornerRadius: 19)
         shape.fillColor = SKColor.clearColor() //sets the color of the boundary
