@@ -263,7 +263,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         switch(contactMask) {
             
+            case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
+            
+                hero!.upSensorContactStart()
+            case BodyType.boundary.rawValue | BodyType.sensorDown.rawValue:
+            
+                hero!.downSensorContactStart()
+            
+            case BodyType.boundary.rawValue | BodyType.sensorLeft.rawValue:
+            
+                hero!.leftSensorContactStart()
+            
+            case BodyType.boundary.rawValue | BodyType.sensorRight.rawValue:
+            
+                hero!.rightSensorContactStart()
+            
             case BodyType.hero.rawValue | BodyType.jewel.rawValue:
+                
                 if let jewel = contact.bodyA.node as? Jewel { ///used if hero runs into a jewel
                     jewel.removeFromParent()
                     
@@ -294,8 +310,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         switch(contactMask) {
             
-        case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-            println("is not touching wall") ///print after hero leaves wall
+        case BodyType.boundary.rawValue | BodyType.sensorUp.rawValue:
+            
+            hero!.upSensorContactEnd()
+        case BodyType.boundary.rawValue | BodyType.sensorDown.rawValue:
+            
+            hero!.downSensorContactEnd()
+            
+        case BodyType.boundary.rawValue | BodyType.sensorLeft.rawValue:
+            
+            hero!.leftSensorContactEnd()
+            
+        case BodyType.boundary.rawValue | BodyType.sensorRight.rawValue:
+            
+            hero!.rightSensorContactEnd()
+            
             
         default:
             return
