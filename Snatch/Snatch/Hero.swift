@@ -26,6 +26,9 @@ enum DesiredDirection {
 
 
 class Hero:SKNode {
+    /*!
+    * @brief Hero class
+    */
     
     /* properties */
     
@@ -33,7 +36,7 @@ class Hero:SKNode {
     var currentDirection = Direction.None
     var desiredDirection = DesiredDirection.None
     
-    var movingAnimation:SKAction?
+    var movingAnimation:SKAction = SKAction()
     var objectSprite:SKSpriteNode?
     
     
@@ -56,14 +59,14 @@ class Hero:SKNode {
         /* Setting physics for hero
         */
         self.physicsBody = SKPhysicsBody(rectangleOfSize: largerSize)
-        self.physicsBody!.friction = 0 //slippery when interacting
-        self.physicsBody!.dynamic = true // whether or not it's part of overall physics simulation
-        self.physicsBody!.restitution = 0 //not bouncy
-        self.physicsBody!.allowsRotation = false // whether or not the physics body can rotate
+        self.physicsBody!.friction = 0 ///slippery when interacting
+        self.physicsBody!.dynamic = true /// whether or not it's part of overall physics simulation
+        self.physicsBody!.restitution = 0 ///not bouncy
+        self.physicsBody!.allowsRotation = false /// whether or not the physics body can rotate
         
         self.physicsBody!.categoryBitMask = BodyType.hero.rawValue
-        //if collisionBitMask is 0 then it will not collide with anything. Default: collides with everything
-        self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.star.rawValue
+        ///if collisionBitMask is 0 then it will not collide with anything. Default: collides with everything
+        self.physicsBody!.contactTestBitMask = BodyType.boundary.rawValue | BodyType.jewel.rawValue
         
         
      
@@ -71,8 +74,8 @@ class Hero:SKNode {
     }
     
     func update(){
-        
-        /** This function will update the character etc every frame, changes when the screen is swyped
+        /**
+        * This function will update the character etc every frame, changes when the screen is swyped
         */
         
         switch currentDirection{
@@ -80,7 +83,8 @@ class Hero:SKNode {
             
                 self.position = CGPoint(x: self.position.x + CGFloat(currentSpeed), y: self.position.y)
                 objectSprite!.zRotation = CGFloat( degreesToRadians(0) )
-                objectSprite!.xScale = 1.0
+                objectSprite!.xScale = 1.0 ///xscale = 1.0 or -1.0 for orientation in the world. 
+                ///don't mess with z rotation or y rotation...
             
             case .Left:
                 self.position = CGPoint(x: self.position.x - CGFloat(currentSpeed), y: self.position.y)
@@ -105,35 +109,52 @@ class Hero:SKNode {
     }
     
     func degreesToRadians(degrees: Double) -> Double {
+        /**
+        * Convert degrees to radians
+        * @param Degrees as a double to be converted
+        */
         return degrees/180 * Double(M_PI)
     }
     
     
     func goUp(){
+        /**
+        send hero up
+        */
         currentDirection = .Up
         runAnimation()
     }
     
     func goDown(){
+        /**
+        send hero down
+        */
         currentDirection = .Down
         runAnimation()
     }
     
     func goRight(){
+        /**
+        send hero right
+        */
         currentDirection = .Right
         runAnimation()
         
     }
     
     func goLeft(){
+        /**
+        send hero left
+        */
         currentDirection = .Left
         runAnimation()
     }
     
     func setUpAnimation(){
+        /// set up the hero animation sequence
         
-        let atlas = SKTextureAtlas(named: "walking") //without the .atlas extension
-        let array:[String] = ["walk1", "walk2", "walk3", "walk2"]
+        let atlas = SKTextureAtlas(named: "walking") ///without the .atlas extension
+        let array:[String] = ["walk1", "walk2", "walk3", "walk2"] ///this is the order the files are cycled
         
         var atlasTextures:[SKTexture] = []
         
@@ -149,6 +170,9 @@ class Hero:SKNode {
     }
     
     func runAnimation(){
+        /**
+        *  Animates the hero to make it look like he's running
+        */
         objectSprite!.runAction(movingAnimation)
         
         
@@ -156,6 +180,9 @@ class Hero:SKNode {
     }
     
     func stopAnimation(){
+        /**
+        *  Stop the running animation
+        */
         objectSprite!.removeAllActions()
     
     
