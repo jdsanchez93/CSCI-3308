@@ -41,8 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
-    var useTMXFiles:Bool = false
+    var useTMXFiles:Bool = true
     var heroIsDead:Bool = false
+    var jewelsAcquired:Int = 0
+    var jewelsTotal:Int = 0
     
     
     
@@ -175,10 +177,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             */
             node, stop in
             
-            if let jewel = node as? SKSpriteNode{ ///let's me refer to node as jewel from now on
+            if let jewel = node as? SKSpriteNode{
+                ///let's me refer to node as jewel from now on
+                
                 let newJewel:Jewel = Jewel()
                 self.mazeWorld!.addChild(newJewel)
                 newJewel.position = jewel.position
+                
+                self.jewelsTotal++
                 
                 jewel.removeFromParent()
                 
@@ -191,7 +197,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
     
-    
+    //MARK: Swipe Gestures
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /*!
@@ -246,6 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         hero!.goDown()
     }
     
+    //MARK: Contact related Code
     
     func didBeginContact(contact: SKPhysicsContact) {
         /*!
@@ -257,8 +264,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         switch(contactMask) {
             
-            case BodyType.hero.rawValue | BodyType.boundary.rawValue:
-                println("ran into wall") ///print if hero runs into a boundary
+            case BodyType.hero.rawValue | BodyType.jewel.rawValue:
+                if let jewel = contact.bodyA.node as? Jewel { ///used if hero runs into a jewel
+                    jewel.removeFromParent()
+                    
+            }
+            
+                else if let jewel = contact.bodyB.node as? Jewel { ///used if hero runs into a jewel
+                    jewel.removeFromParent()
+                   
+                
+            }
+                
+                jewelsAcquired++
+                if jewelsAcquired == jewelsTotal{
+                    println("collected all jewels")
+            }
             
             default:
                 return
@@ -287,6 +308,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
     }
     
+    //MARK: Parse TMX File
     
     func parseTMXFileWithName(name:NSString){
         /*!
@@ -317,7 +339,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 let newBoundary:Boundary = Boundary(theDict: attributeDict)
                     mazeWorld!.addChild(newBoundary)
                 
-            } else if (type as? String == "Portal") {
+            }
+            
+            else if (type as? String == "Jewel"){ ///looks for an Jewel object in the .tmx file
+                
+                let newJewel:Jewel = Jewel(theDict: attributeDict)
+                mazeWorld!.addChild(newJewel)
+                
+            }
+                
+            else if (type as? String == "Portal") {
                 let theName:String = attributeDict["name"] as AnyObject? as! String
                 
                 if (theName == "StartingPoint"){

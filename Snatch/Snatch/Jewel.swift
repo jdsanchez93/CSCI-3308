@@ -6,7 +6,7 @@
 import Foundation
 import SpriteKit
 
-class Jewel:SKNode{
+class Jewel:SKNode {
     
     var jewelSprite:SKSpriteNode?
     
@@ -24,6 +24,28 @@ class Jewel:SKNode{
         createPhysicsBody()
         
     }
+    
+    init (theDict:Dictionary<NSObject, AnyObject>){
+        
+        super.init()
+        
+        let theX:String = theDict["x"] as AnyObject? as! String ///as! because swift is weird...
+        let x:Int = theX.toInt()!
+        
+        let theY:String = theDict["y"] as AnyObject? as! String
+        let y:Int = theY.toInt()!
+        
+        let location:CGPoint = CGPoint(x: x, y: y * -1)
+        
+        jewelSprite = SKSpriteNode(imageNamed: "jewel")
+        addChild(jewelSprite!)
+        
+        self.position = CGPoint(x: location.x + (jewelSprite!.size.width / 2), y: location.y - (jewelSprite!.size.height / 2))
+        
+        createPhysicsBody()
+        
+    }
+    
     
     
     func createPhysicsBody(){
