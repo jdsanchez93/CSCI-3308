@@ -40,7 +40,7 @@ class LoginScreen: UIViewController {
         }
         
         //Send user data to server
-        let myUrl = NSURL(string: "http://localhost:8000/userLogin.php");
+        let myUrl = NSURL(string: "http://caramel-howl-113305.appspot.com/userLogin.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         

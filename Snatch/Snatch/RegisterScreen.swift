@@ -48,11 +48,12 @@ class RegisterScreen: UIViewController {
         }
         
         //Send user data to server
-        let myUrl = NSURL(string: "http://localhost:8000/userRegister.php");
+        let myUrl = NSURL(string: "http://caramel-howl-113305.appspot.com/userRegister.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         
         let postString = "email=\(userEmail)&username=\(username)&password=\(password)";
+        println(postString);
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
