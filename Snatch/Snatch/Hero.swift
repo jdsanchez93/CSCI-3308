@@ -152,54 +152,86 @@ class Hero:SKNode {
         /**
         send hero up
         */
-        currentDirection = .Up
-        runAnimation()
         
-        createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
-        createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
-        createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
-        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        if (upBlocked == true) {
+            desiredDirection = DesiredDirection.Up
+            
+        } else{
         
+            runAnimation()
+            currentDirection = .Up
+            downBlocked = false
+            self.physicsBody?.dynamic = true
+            
+            createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
+            createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
+            createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
+            createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        }
     }
     
     func goDown(){
         /**
         send hero down
         */
-        currentDirection = .Down
-        runAnimation()
+        if (downBlocked == true) {
+            desiredDirection = DesiredDirection.Down
+            
+        } else{
         
-        createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
-        createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
-        createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
-        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
+         currentDirection = .Down
+         runAnimation()
+         upBlocked = false
+         self.physicsBody?.dynamic = true
+         
+         createUpSensorPhysicsBody(whileTravellingUpOrDown: true)
+         createDownSensorPhysicsBody(whileTravellingUpOrDown: true)
+         createRightSensorPhysicsBody(whileTravellingRightOrLeft: false)
+         createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
+        }
     }
     
     func goRight(){
         /**
         send hero right
         */
-        currentDirection = .Right
-        runAnimation()
+        if (rightBlocked == true) {
+            desiredDirection = DesiredDirection.Right
+            
+        } else{
         
-        createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
-        createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
-        createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
-        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
+            currentDirection = .Right
+            runAnimation()
         
+            leftBlocked = false
+            self.physicsBody?.dynamic = true
+        
+            createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
+            createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
+            createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
+            createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        }
     }
     
     func goLeft(){
         /**
         send hero left
         */
-        currentDirection = .Left
-        runAnimation()
+        if (leftBlocked == true) {
+            desiredDirection = DesiredDirection.Left
+            
+        } else{
+            currentDirection = .Left
+            runAnimation()
+            
+            rightBlocked = false
+            self.physicsBody?.dynamic = true
         
-        createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
-        createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
-        createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
-        createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
+            createUpSensorPhysicsBody(whileTravellingUpOrDown: false)
+            createDownSensorPhysicsBody(whileTravellingUpOrDown: false)
+            createRightSensorPhysicsBody(whileTravellingRightOrLeft: true)
+            createLeftSensorPhysicsBody(whileTravellingRightOrLeft: true)
+        }
     }
     
     func setUpAnimation(){
@@ -391,26 +423,46 @@ class Hero:SKNode {
     //MARK: Functions for Sensor Contact: Ended
     
     func upSensorContactEnd(){
-        println("up contact ended")
+        upBlocked = false
+        
+        if (desiredDirection == DesiredDirection.Up) {
+            goUp()
+            desiredDirection = DesiredDirection.None
+        }
         
         
     }
     
     func downSensorContactEnd(){
+        downBlocked = false
         
-        println("down contact ended")
+        if (desiredDirection == DesiredDirection.Down) {
+            goDown()
+            desiredDirection = DesiredDirection.None
+        }
+        
         
     }
     
     func leftSensorContactEnd(){
-        println("left contact ended")
+        leftBlocked = false
+        
+        if (desiredDirection == DesiredDirection.Left) {
+            goLeft()
+            desiredDirection = DesiredDirection.None
+        }
+        
         
         
     }
     
     func rightSensorContactEnd(){
-        println("right contact ended")
+        rightBlocked = false
         
+        if (desiredDirection == DesiredDirection.Right) {
+            goRight()
+            desiredDirection = DesiredDirection.None
+        }
         
     }
     
