@@ -16,9 +16,10 @@ class Boundary:SKNode {
 }
 
     init (fromSKSWithRect rect:CGRect){
-        /*!
-        * @brief init from an SKS
-        * @param CGRect
+        /**
+        init from an SKS
+        
+        - returns: None
         */
         
         super.init()
@@ -32,9 +33,10 @@ class Boundary:SKNode {
     
     
     init (theDict:Dictionary<NSObject, AnyObject> ) {
-        /*!
-        * @brief init from a dictionary when using a .tmx file
-        * @param Dict<NSObject, AnyObject>
+        /**
+        init from a dictionary when using a .tmx file
+        
+        - returns: None
         */
         
         super.init()
@@ -63,10 +65,7 @@ class Boundary:SKNode {
     }
 
     func createBoundary(rect:CGRect){
-        /*!
-        * @brief Create a boundary, set physics of boundary
-        * @param CGRect
-        */
+ /// Create a boundary, set physics of boundary
         
         let shape = SKShapeNode(rect: rect, cornerRadius: 19)
         shape.fillColor = SKColor.clearColor() //sets the color of the boundary
@@ -76,7 +75,7 @@ class Boundary:SKNode {
         addChild(shape)
         
         
-        //add the physics of the boundaries
+        ///add the physics of the boundaries
         self.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
         self.physicsBody!.dynamic = false //immovable
         self.physicsBody!.categoryBitMask = BodyType.boundary.rawValue
@@ -84,7 +83,7 @@ class Boundary:SKNode {
         self.physicsBody!.allowsRotation = false
         
         
-        self.zPosition = 100 //visual depth is above anything that gets added at default position
+        self.zPosition = 100 ///visual depth is above anything that gets added at default position
         
     }
 

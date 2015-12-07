@@ -74,8 +74,8 @@ class Hero:SKNode {
     }
     
     func update(){
-        /*!
-        * @brief This function will update the character etc every frame, changes when the screen is swyped
+        /**
+        * This function will update the character etc every frame, changes when the screen is swyped
         */
         
         switch currentDirection{
@@ -109,8 +109,8 @@ class Hero:SKNode {
     }
     
     func degreesToRadians(degrees: Double) -> Double {
-        /*!
-        * @brief Convert degrees to radians
+        /**
+        * Convert degrees to radians
         * @param Degrees as a double to be converted
         */
         return degrees/180 * Double(M_PI)
@@ -118,24 +118,24 @@ class Hero:SKNode {
     
     
     func goUp(){
-        /*!
-        * @brief send hero up
+        /**
+        send hero up
         */
         currentDirection = .Up
         runAnimation()
     }
     
     func goDown(){
-        /*!
-        * @brief send hero down
+        /**
+        send hero down
         */
         currentDirection = .Down
         runAnimation()
     }
     
     func goRight(){
-        /*!
-        * @brief send hero right
+        /**
+        send hero right
         */
         currentDirection = .Right
         runAnimation()
@@ -143,17 +143,15 @@ class Hero:SKNode {
     }
     
     func goLeft(){
-        /*!
-        * @brief send hero left
+        /**
+        send hero left
         */
         currentDirection = .Left
         runAnimation()
     }
     
     func setUpAnimation(){
-        /*!
-        * @brief set up the hero animation sequence
-        */
+        /// set up the hero animation sequence
         
         let atlas = SKTextureAtlas(named: "walking") ///without the .atlas extension
         let array:[String] = ["walk1", "walk2", "walk3", "walk2"] ///this is the order the files are cycled
@@ -172,6 +170,9 @@ class Hero:SKNode {
     }
     
     func runAnimation(){
+        /**
+        *  Animates the hero to make it look like he's running
+        */
         objectSprite!.runAction(movingAnimation)
         
         
@@ -179,6 +180,9 @@ class Hero:SKNode {
     }
     
     func stopAnimation(){
+        /**
+        *  Stop the running animation
+        */
         objectSprite!.removeAllActions()
     
     
