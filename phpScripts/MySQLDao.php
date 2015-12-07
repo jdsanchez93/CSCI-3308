@@ -77,5 +77,19 @@ public function registerUser($email, $username, $password)
 	return $returnValue;
 }
 
+public function getHighScores() {
+	$sql = "select username, highscore from users";
+	$result = $this->conn->query($sql);
+	echo "<table style='width:100%'><tr><td>Username</td><tr>Highscore</tr>";
+	if ($result->num_rows >0) {
+		//output data of each row
+		while($row = $result->fetch_assoc()) {
+			echo "<tr><td>" . $row["username"] . "</td><td>" . $row["highscore"] . "</td></tr>";
+		}
+	} else {
+		echo "No highscores"
+	}
+}
+
 }
 ?>
