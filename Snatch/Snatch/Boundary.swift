@@ -15,7 +15,7 @@ class Boundary:SKNode {
         fatalError("init(coder:) has not been implemented")
 }
 
-    init (fromSKSWithRect rect:CGRect){
+    init (fromSKSWithRect rect:CGRect, isEdge:Bool){
         /**
         init from an SKS
         
@@ -27,7 +27,7 @@ class Boundary:SKNode {
         let newLocation = CGPoint(x: -(rect.size.width / 2), y: -(rect.size.height / 2) )
         let newRect:CGRect = CGRect (origin: newLocation, size: rect.size)
         
-        createBoundary(newRect)
+        createBoundary(newRect, createAsEdge: isEdge)
         
     }
     
@@ -40,6 +40,18 @@ class Boundary:SKNode {
         */
         
         super.init()
+        
+        let isEdgeAsString:String = theDict["isEdge"] as AnyObject? as! String
+        
+        var isEdge:Bool
+        
+        if(isEdgeAsString == "true") {
+            isEdge = true
+            
+        }else{
+            
+            isEdge = false
+        }
 
         let theX:String = theDict["x"] as AnyObject? as! String ///as! because swift is weird...
         let x:Int = theX.toInt()!
@@ -59,24 +71,34 @@ class Boundary:SKNode {
         self.position = CGPoint(x: location.x + (size.width / 2), y: (location.y - size.height/2))
         let rect:CGRect = CGRectMake(-(size.width/2), -(size.height/2), size.width, size.height)
         
-        createBoundary(rect)
+        createBoundary(rect, createAsEdge:isEdge)
         
         
     }
 
-    func createBoundary(rect:CGRect){
+    func createBoundary(rect:CGRect, createAsEdge:Bool){
  /// Create a boundary, set physics of boundary
         
         let shape = SKShapeNode(rect: rect, cornerRadius: 19)
         shape.fillColor = SKColor.clearColor() //sets the color of the boundary
-        shape.strokeColor = SKColor.blackColor()
+        shape.strokeColor = SKColor.whiteColor()
         shape.lineWidth = 1
         
         addChild(shape)
         
+        /**
+        *  create as an edge
+        */
+        
+        if (createAsEdge == false) {
+            self.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
+        } else {
+            
+            self.physicsBody = SKPhysicsBody(edgeLoopFromRect: rect)
+        }
+        
         
         ///add the physics of the boundaries
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
         self.physicsBody!.dynamic = false //immovable
         self.physicsBody!.categoryBitMask = BodyType.boundary.rawValue
         self.physicsBody!.friction = 0

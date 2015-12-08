@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://gentlebytes.com/downloads/None.Snatch.atom/20151207204950</id>
+    <title type="text">Snatch Documentation</title>
+    <rights>Copyright © 2015 Team Rocket. All rights reserved.</rights>
+    <link rel="self" href="http://gentlebytes.com/downloads/None.Snatch.atom"></link>
+    <docset:publisherName>Team Rocket</docset:publisherName>
+    <docset:publisherID>None.documentation</docset:publisherID>
+    <updated>2015-12-07T20:49:50-07:00</updated>
+    <entry>
+        <id>tag:gentlebytes.com,2015-12-07:None.Snatch/1.0.0</id>
+        <title type="text">Snatch Documentation</title>
+        <updated>2015-12-07T20:49:50-07:00</updated>
+        <content type="text">Snatch Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http:/gentlebytes.com/downloads/None.Snatch-1.0.xar" length="32043"></link>
+        <docset:identifier>None.Snatch</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>

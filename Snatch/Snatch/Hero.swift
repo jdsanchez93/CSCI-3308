@@ -269,6 +269,13 @@ class Hero:SKNode {
     }
     
     
+    //MARK: Create sensors
+    
+    /**
+    Create Sensor on hero for up
+    
+    - parameter whileTravellingUpOrDown: if the hero is travelling down
+    */
     func createUpSensorPhysicsBody(#whileTravellingUpOrDown:Bool){
         
         var size:CGSize = CGSizeZero

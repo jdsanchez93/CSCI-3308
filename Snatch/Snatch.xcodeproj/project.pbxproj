@@ -37,9 +37,9 @@
 		6386E6EB1BF2F0E8006E6532 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4021BEFF68F00C3417E /* GameScene.swift */; };
 		6386E6EC1BF2F0EB006E6532 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386E6931BF2D4E9006E6532 /* Boundary.swift */; };
 		7D0101531C156CF50009BF04 /* Jewel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E3EAD1C156B5F007F8363 /* Jewel.swift */; };
-		7D1E3EA71C1567D1007F8363 /* OpponentWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E3EA61C1567D1007F8363 /* OpponentWalk.atlas */; };
-		7D1E3EA91C1567D9007F8363 /* Cop1Walk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 7D1E3EA81C1567D9007F8363 /* Cop1Walk.atlas */; };
 		7D1E3EAE1C156B5F007F8363 /* Jewel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1E3EAD1C156B5F007F8363 /* Jewel.swift */; };
+		7DB388731C169F6E00F3741A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD37D71C169C0700E15733 /* Enemy.swift */; };
+		7DCD37D81C169C0700E15733 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD37D71C169C0700E15733 /* Enemy.swift */; };
 		7DDE4DF61C14AE0900564440 /* MazeType1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 7DDE4DF51C14AE0900564440 /* MazeType1.tmx */; };
 /* End PBXBuildFile section */
 
@@ -70,9 +70,8 @@
 		6386A4221BEFF8A800C3417E /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = moving.atlas; path = ../../../Downloads/Maze_Game_Assets/moving.atlas; sourceTree = "<group>"; };
 		6386A4251BEFFDBA00C3417E /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		6386E6931BF2D4E9006E6532 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
-		7D1E3EA61C1567D1007F8363 /* OpponentWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = OpponentWalk.atlas; path = SnatchNGrab_Atlases/OpponentWalk.atlas; sourceTree = "<group>"; };
-		7D1E3EA81C1567D9007F8363 /* Cop1Walk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Cop1Walk.atlas; path = SnatchNGrab_Atlases/Cop1Walk.atlas; sourceTree = "<group>"; };
 		7D1E3EAD1C156B5F007F8363 /* Jewel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jewel.swift; sourceTree = "<group>"; };
+		7DCD37D71C169C0700E15733 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		7DDE4DF51C14AE0900564440 /* MazeType1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MazeType1.tmx; path = ../../../Downloads/Maze_Game_Assets/MazeType1.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +114,7 @@
 		6386A3FB1BEFF68F00C3417E /* Snatch */ = {
 			isa = PBXGroup;
 			children = (
+				7DCD37D71C169C0700E15733 /* Enemy.swift */,
 				7DDE4DF51C14AE0900564440 /* MazeType1.tmx */,
 				6386A3FE1BEFF68F00C3417E /* AppDelegate.swift */,
 				7D1E3EAD1C156B5F007F8363 /* Jewel.swift */,
@@ -160,8 +160,6 @@
 		6386A4241BEFF8C900C3417E /* Texture_Atlases */ = {
 			isa = PBXGroup;
 			children = (
-				7D1E3EA81C1567D9007F8363 /* Cop1Walk.atlas */,
-				7D1E3EA61C1567D1007F8363 /* OpponentWalk.atlas */,
 				6326CF621BF14BAC005C4F55 /* walking.atlas */,
 				6386A4221BEFF8A800C3417E /* moving.atlas */,
 			);
@@ -253,9 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6386A40D1BEFF68F00C3417E /* LaunchScreen.xib in Resources */,
-				7D1E3EA91C1567D9007F8363 /* Cop1Walk.atlas in Resources */,
 				6386A40A1BEFF68F00C3417E /* Images.xcassets in Resources */,
-				7D1E3EA71C1567D1007F8363 /* OpponentWalk.atlas in Resources */,
 				7DDE4DF61C14AE0900564440 /* MazeType1.tmx in Resources */,
 				6326CF631BF14BAC005C4F55 /* walking.atlas in Resources */,
 				6386A4011BEFF68F00C3417E /* GameScene.sks in Resources */,
@@ -278,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DCD37D81C169C0700E15733 /* Enemy.swift in Sources */,
 				6386A4031BEFF68F00C3417E /* GameScene.swift in Sources */,
 				6386A4051BEFF68F00C3417E /* GameViewController.swift in Sources */,
 				6386A3FF1BEFF68F00C3417E /* AppDelegate.swift in Sources */,
@@ -291,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB388731C169F6E00F3741A /* Enemy.swift in Sources */,
 				6386E6EA1BF2F0E1006E6532 /* AppDelegate.swift in Sources */,
 				6386E6E91BF2F0C4006E6532 /* SnatchTests.swift in Sources */,
 				6386E6EB1BF2F0E8006E6532 /* GameScene.swift in Sources */,

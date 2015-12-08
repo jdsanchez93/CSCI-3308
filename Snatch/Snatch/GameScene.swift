@@ -52,7 +52,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     var heroIsDead:Bool = false
     var jewelsAcquired:Int = 0
     var jewelsTotal:Int = 0
-    
+    var enemyCount:Int = 0
+    var enemyDictionary:[String:CGPoint] = [:] //key is string and the value is the point of enemy in scene
     
     /**
     set up starting location, maze, enemy locations
@@ -63,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         
         self.backgroundColor = SKColor.blackColor()
-        view.showsPhysics = true
+        view.showsPhysics = false
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
@@ -140,7 +141,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
         if (useTMXFiles == false) {
             setUpBoundaryFromSKS()
+            setUpEdgeFromSKS()
             setUpJewelsFromSKS()
+            setUpEnemiesFromSKS()
             
         }
         else{
@@ -148,6 +151,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
         }
        
+    }
+    
+    
+    /**
+    set up enemies from the sks file
+    */
+    func setUpEnemiesFromSKS() {
+        
+        mazeWorld!.enumerateChildNodesWithName("enemy"){
+            node, stop in
+            
+            if let enemy = node as? SKSpriteNode {
+                
+                self.enemyCount++
+                
+                let newEnemy:Enemy = Enemy(fromSKSWithImage: enemy.name!)
+                self.mazeWorld!.addChild(newEnemy)
+                newEnemy.position = enemy.position
+                newEnemy.name = enemy.name
+                
+                self.enemyDictionary.updateValue(newEnemy.position, forKey: newEnemy.name!)
+                
+                enemy.removeFromParent()
+            }
+            
+        }
+        
+        
+        
+        
+        
     }
     
     
@@ -169,11 +203,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 println("found boundary")
                 let rect:CGRect = CGRect(origin: boundary.position, size: boundary.size)
-                let newBoundary:Boundary = Boundary(fromSKSWithRect: rect)
+                let newBoundary:Boundary = Boundary(fromSKSWithRect: rect, isEdge: false)
                 self.mazeWorld!.addChild(newBoundary)
                 newBoundary.position = boundary.position
                 
                 boundary.removeFromParent()
+                
+            }
+            
+        }
+        
+    }
+    
+    func setUpEdgeFromSKS() {
+        
+        
+        /**
+        *  find all nodes with boundary name
+        */
+        mazeWorld!.enumerateChildNodesWithName("edge"){
+            
+            node, stop in
+            
+            if let edge = node as? SKSpriteNode{
+                
+                println("found edge")
+                let rect:CGRect = CGRect(origin: edge.position, size: edge.size)
+                let newEdge:Boundary = Boundary(fromSKSWithRect: rect, isEdge: true)
+                self.mazeWorld!.addChild(newEdge)
+                newEdge.position = edge.position
+                
+                edge.removeFromParent()
                 
             }
             
@@ -414,10 +474,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             ///parse and create boundary objects from TMX File
             if (type as? String == "Boundary"){
                 
-                let newBoundary:Boundary = Boundary(theDict: attributeDict)
+                var tmxDict = attributeDict
+                tmxDict.updateValue("false", forKey: "isEdge")
+                
+                let newBoundary:Boundary = Boundary(theDict: tmxDict)
                     mazeWorld!.addChild(newBoundary)
                 
             }
+            
+            ///parse and create boundary objects from TMX File
+            else if (type as? String == "Edge"){
+                
+                var tmxDict = attributeDict
+                tmxDict.updateValue("true", forKey: "isEdge")
+                
+                let newEdge:Boundary = Boundary(theDict: tmxDict)
+                mazeWorld!.addChild(newEdge)
+                
+            }
+
             
             ///parse and create jewel objects from TMX File
             else if (type as? String == "Jewel"){
@@ -444,6 +519,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
 
                     
                 }
+                
+            }
+            
+            else if (type as? String == "Enemy"){
+                enemyCount++
+                
+                let theName:String = attributeDict["name"] as AnyObject? as! String
+                
+                let newEnemy:Enemy = Enemy(theDict: attributeDict)
+                mazeWorld!.addChild(newEnemy)
+                
+                newEnemy.name = theName
+                
+                let location:CGPoint = newEnemy.position
+                
+                enemyDictionary.updateValue(location, forKey: newEnemy.name!)
                 
             }
             

@@ -74,7 +74,7 @@ class SnatchTests: XCTestCase {
     
     func testBoundaryInit() {
         let rect = CGRectMake(0, 0, 10, 20)
-        let b = Boundary(fromSKSWithRect: rect)
+        let b = Boundary(fromSKSWithRect: rect, isEdge: false)
         //println(b.children.first)
         XCTAssert(b.children.count == 1, "Boundary did not correctly create SKShapeNode")
         
