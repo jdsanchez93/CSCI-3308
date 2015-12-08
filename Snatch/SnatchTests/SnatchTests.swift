@@ -80,6 +80,22 @@ class SnatchTests: XCTestCase {
         
     }
     
+    func testJewelInit() {
+        
+        let jewel = Jewel()
+        //println(b.children.first)
+        XCTAssert(jewel.children.count == 1, "Boundary did not correctly create SKShapeNode")
+        
+    }
+    
+    func testEnemyInit() {
+        let enemy = Enemy(fromSKSWithImage: "enemy_opponent")
+        XCTAssert(enemy.enemySpeed == 5, "Initial speed incorrect")
+        XCTAssert(enemy.currentDirection == EnemyDirection.Up, "Initial direction incorrect")
+        XCTAssert(enemy.heroLocationIs == HeroIs.Southwest, "Initial hero direction incorrect")
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {

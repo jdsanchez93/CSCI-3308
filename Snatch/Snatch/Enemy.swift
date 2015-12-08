@@ -29,7 +29,7 @@ Current enemy direction
 - Up:    Enemy is moving Up
 - Down:  Enemy is moving Down
 - Left:  Enemy is moving Left
-- Right: Enemy is moving Right
+- Right: Enemy is moving 
 */
 enum EnemyDirection {
     
@@ -38,13 +38,16 @@ enum EnemyDirection {
 }
 
 /// Enemy Class
+/// this class contains all of the information about the enemies
+/// including physics bodies, location, direction, speed, contact options, etc
 class Enemy: SKNode {
+    
     /**
     Default init as SKS
     
-    - parameter aDecoder: see SK NSCoder
+    @param: aDecoder: see SK NSCoder
     
-    - returns: Error if not implemented
+    @return: Error if not implemented
     */
     
     var heroLocationIs = HeroIs.Southwest

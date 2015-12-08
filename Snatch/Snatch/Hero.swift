@@ -25,6 +25,8 @@ enum DesiredDirection {
 }
 
 /// Hero Class
+/// this class contains all of the information about the hero
+/// including physics body, location, direction, speed, contact options, etc
 class Hero:SKNode {
     
     var currentSpeed:Float = 5

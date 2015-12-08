@@ -41,6 +41,7 @@ enum BodyType:UInt32 {
 }
 
 /// Create the Game Scene
+/// This will start the game and initialize all children
 class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     

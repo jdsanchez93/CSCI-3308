@@ -5,7 +5,9 @@
 import Foundation
 import SpriteKit
 
-
+/// Boundary class
+/// this class contains all of the information about the boundaries
+/// including location, contact options, whether or not it is an edge etc
 class Boundary:SKNode {
     
     /* properties */

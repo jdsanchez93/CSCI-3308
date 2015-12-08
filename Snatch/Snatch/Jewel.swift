@@ -7,6 +7,8 @@ import Foundation
 import SpriteKit
 
 /// Jewel Class
+/// this class contains all of the information about the jewels
+/// including physics bodies, location, contact options, etc
 class Jewel:SKNode {
     
     var jewelSprite:SKSpriteNode?
