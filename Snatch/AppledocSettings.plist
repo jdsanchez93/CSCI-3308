@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>--project-name</key>
+    <string>Snatch</string>
+    <key>--project-company</key>
+    <string>Team Rocket</string>
+    <key>--company-id</key>
+    <string>None</string>
+
+    <key>--output</key>
+    <string>Docs</string>
+
+    <key>--create-docset</key>
+    <false/>
+
+    <key>--ignore</key>
+    <array>
+        <string>Pods</string>
+        <string>Libs</string>
+        <string>SnatchTests</string>
+        <string>*.framework</string>
+    </array>
+
+</dict>
+</plist>

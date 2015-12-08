@@ -6,6 +6,19 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7DC6F55B1C165D49002DBC5F /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7DC6F55C1C165D49002DBC5F /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		6326CF631BF14BAC005C4F55 /* walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6326CF621BF14BAC005C4F55 /* walking.atlas */; };
 		6386A3FF1BEFF68F00C3417E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A3FE1BEFF68F00C3417E /* AppDelegate.swift */; };
@@ -209,6 +222,9 @@
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = 6386A3F81BEFF68F00C3417E;
 					};
+					7DC6F55B1C165D49002DBC5F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 				};
 			};
 			buildConfigurationList = 6386A3F41BEFF68F00C3417E /* Build configuration list for PBXProject "Snatch" */;
@@ -226,6 +242,7 @@
 			targets = (
 				6386A3F81BEFF68F00C3417E /* Snatch */,
 				6386A4111BEFF68F00C3417E /* SnatchTests */,
+				7DC6F55B1C165D49002DBC5F /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -453,6 +470,20 @@
 			};
 			name = Release;
 		};
+		7DC6F55D1C165D49002DBC5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7DC6F55E1C165D49002DBC5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -479,6 +510,15 @@
 			buildConfigurations = (
 				6386A4201BEFF68F00C3417E /* Debug */,
 				6386A4211BEFF68F00C3417E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DC6F55C1C165D49002DBC5F /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DC6F55D1C165D49002DBC5F /* Debug */,
+				7DC6F55E1C165D49002DBC5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

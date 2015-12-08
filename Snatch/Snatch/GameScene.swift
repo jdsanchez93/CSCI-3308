@@ -1,16 +1,18 @@
-//
-//  GameScene.swift
-//  Snatch
-//
-//  Copyright (c) 2015 Team Rocket. All rights reserved.
-//
+///
+///  GameScene.swift
+///  Snatch
+///
+///  Copyright (c) 2015 Team Rocket. All rights reserved.
+///
+
 
 import SpriteKit
 
 
 
 enum BodyType:UInt32 {
-    /// how things will interact with one another
+    /// - note: how things will interact with one another
+    
     
     case hero = 1
     case boundary = 2
@@ -29,7 +31,8 @@ enum BodyType:UInt32 {
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
-    /// Class, create the game scene
+    /** #Create the game scene
+    */
     
     var currentSpeed:Float = 5
     var heroLocation:CGPoint = CGPointZero
@@ -51,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         *  @return None
         */
         
-        self.backgroundColor = SKColor.grayColor()
+        self.backgroundColor = SKColor.blackColor()
         view.showsPhysics = true
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
