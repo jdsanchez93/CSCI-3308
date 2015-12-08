@@ -44,7 +44,7 @@ enum BodyType:UInt32 {
 class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     
     
-    var currentSpeed:Float = 5
+    var currentSpeed:Float = 5 ///hero speed
     var heroLocation:CGPoint = CGPointZero
     var mazeWorld:SKNode?
     var hero:Hero?
@@ -166,6 +166,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
                 self.enemyCount++
                 
+                /// create a new enemy with the name from sks file
                 let newEnemy:Enemy = Enemy(fromSKSWithImage: enemy.name!)
                 self.mazeWorld!.addChild(newEnemy)
                 newEnemy.position = enemy.position
@@ -471,7 +472,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
             let type:AnyObject? = attributeDict["type"]
             
-            ///parse and create boundary objects from TMX File
+            /**
+            *  parse and create boundaries from TMX File
+            *
+            *  @param "Boundary" type to find in tmx file
+            *
+            *  @return add boundaries to scene
+            */
             if (type as? String == "Boundary"){
                 
                 var tmxDict = attributeDict
@@ -482,7 +489,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
             }
             
-            ///parse and create boundary objects from TMX File
+                /**
+                *  parse and create edge from TMX File
+                *
+                *  @param "Edge" type to find in tmx file
+                *
+                *  @return add world edge to scene
+                */
             else if (type as? String == "Edge"){
                 
                 var tmxDict = attributeDict
@@ -494,7 +507,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             }
 
             
-            ///parse and create jewel objects from TMX File
+                /**
+                *  parse and create jewels from TMX File
+                *
+                *  @param "Jewel" type to find in tmx file
+                *
+                *  @return add jewel nodes to scene
+                */
             else if (type as? String == "Jewel"){
                 
                 let newJewel:Jewel = Jewel(theDict: attributeDict)
@@ -502,7 +521,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
             }
                 
-            ///parse and create starting position from TMX File
+            
+                /**
+                *  parse and create starting position from TMX File
+                *
+                *  @param "Portal" type to find in tmx file
+                *
+                *  @return change hero starting point to portal location
+                */
             else if (type as? String == "Portal") {
                 let theName:String = attributeDict["name"] as AnyObject? as! String
                 
@@ -522,6 +548,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
                 
             }
             
+                /**
+                *  parse and create enemy objects from TMX File
+                *
+                *  @param "Enemy" type to find in tmx file
+                *
+                *  @return specific type of enemy in a dictionary
+                */
             else if (type as? String == "Enemy"){
                 enemyCount++
                 

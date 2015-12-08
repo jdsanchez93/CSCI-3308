@@ -22,6 +22,11 @@ class Jewel:SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+    Default init from SKS file
+    
+    - returns: jewel sprite with physics body characteristics
+    */
     override init() {
         
         super.init()

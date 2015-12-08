@@ -24,13 +24,8 @@ enum DesiredDirection {
     
 }
 
-
+/// Hero Class
 class Hero:SKNode {
-    /*!
-    * @brief Hero class
-    */
-    
-    /* properties */
     
     var currentSpeed:Float = 5
     var currentDirection = Direction.None
@@ -51,11 +46,22 @@ class Hero:SKNode {
     
     var buffer:Int = 25
     
+    /**
+    return error if not init
     
+    - parameter aDecoder: see SpriteKit NSCoder
+    
+    - returns: Error if not initialized
+    */
     required init?(coder aDecoder: NSCoder) { //this handes the error if the init of coder hasn't been implemented
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+    Default init for hero
+    
+    - returns: hero node
+    */
     override init (){ //override the init for SKNode
         super.init() //init a normal SKNode, with additional stuff befow
         println("hero was added")
@@ -104,11 +110,14 @@ class Hero:SKNode {
     
     }
     
+    /**
+    This function will update the character etc every frame, changes when the screen is swyped
+    */
     func update(){
-        /**
-        * This function will update the character etc every frame, changes when the screen is swyped
-        */
         
+        /**
+        *  updates based on current direction and orientation
+        */
         switch currentDirection{
             case .Right:
             
@@ -139,24 +148,35 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Convert degrees to radians
+    
+    - parameter degrees: degrees as double
+    
+    - returns: radians as double
+    */
     func degreesToRadians(degrees: Double) -> Double {
-        /**
-        * Convert degrees to radians
-        * @param Degrees as a double to be converted
-        */
+        
         return degrees/180 * Double(M_PI)
     }
     
-    
+    /**
+    send hero up
+    */
     func goUp(){
-        /**
-        send hero up
-        */
         
+        /**
+        *  if hero is blocked, changed desired direction until clear
+        */
         if (upBlocked == true) {
             desiredDirection = DesiredDirection.Up
             
-        } else{
+        }
+            /**
+            *  otherwise run the animation for hero moving upward
+            and update physics body sensors
+            */
+        else{
         
             runAnimation()
             currentDirection = .Up
@@ -169,15 +189,23 @@ class Hero:SKNode {
             createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
         }
     }
-    
+    /**
+    send hero down
+    */
     func goDown(){
+        
         /**
-        send hero down
+        *  if hero is blocked, changed desired direction until clear
         */
         if (downBlocked == true) {
             desiredDirection = DesiredDirection.Down
             
-        } else{
+        }
+            /**
+            *  otherwise run the animation for hero moving down
+            and update physics body sensors
+            */
+        else{
         
          currentDirection = .Down
          runAnimation()
@@ -190,15 +218,23 @@ class Hero:SKNode {
          createLeftSensorPhysicsBody(whileTravellingRightOrLeft: false)
         }
     }
-    
+    /**
+    send hero right
+    */
     func goRight(){
+        
         /**
-        send hero right
+        *  if hero is blocked, changed desired direction until clear
         */
         if (rightBlocked == true) {
             desiredDirection = DesiredDirection.Right
             
-        } else{
+        }
+            /**
+            *  otherwise run the animation for hero moving right
+            and update physics body sensors
+            */
+        else{
         
             currentDirection = .Right
             runAnimation()
@@ -213,14 +249,23 @@ class Hero:SKNode {
         }
     }
     
+    /**
+    send hero left
+    */
     func goLeft(){
+        
         /**
-        send hero left
+        *  if hero is blocked, changed desired direction until clear
         */
         if (leftBlocked == true) {
             desiredDirection = DesiredDirection.Left
             
-        } else{
+        }
+            /**
+            *  otherwise run the animation for hero moving left
+            and update physics body sensors
+            */
+        else{
             currentDirection = .Left
             runAnimation()
             
@@ -234,8 +279,10 @@ class Hero:SKNode {
         }
     }
     
+    /**
+    set up the hero animation sequence
+    */
     func setUpAnimation(){
-        /// set up the hero animation sequence
         
         let atlas = SKTextureAtlas(named: "walking") ///without the .atlas extension
         let array:[String] = ["walk1", "walk2", "walk3", "walk2"] ///this is the order the files are cycled
@@ -253,18 +300,20 @@ class Hero:SKNode {
         
     }
     
+    /**
+    *  Animates the hero to make it look like he's running
+    */
     func runAnimation(){
-        /**
-        *  Animates the hero to make it look like he's running
-        */
+        
         objectSprite!.runAction(movingAnimation)
      
     }
     
+    /**
+    *  Stop the running animation
+    */
     func stopAnimation(){
-        /**
-        *  Stop the running animation
-        */
+        
         objectSprite!.removeAllActions()
     }
     
@@ -274,12 +323,15 @@ class Hero:SKNode {
     /**
     Create Sensor on hero for up
     
-    - parameter whileTravellingUpOrDown: if the hero is travelling down
+    - parameter whileTravellingUpOrDown: bool for if the hero is travelling up or down
     */
     func createUpSensorPhysicsBody(#whileTravellingUpOrDown:Bool){
         
         var size:CGSize = CGSizeZero
         
+        /**
+        *  if hero is traveling down, set sensor sizes to w: 32, h: 9
+        */
         if (whileTravellingUpOrDown == true){
             
             size = CGSize(width: 32, height: 9)
@@ -288,6 +340,7 @@ class Hero:SKNode {
             
         }
         
+        /// set up sensor physics body properties
         nodeUp!.physicsBody = nil ///to get rid of any existing physics body
         let bodyUp:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
         nodeUp!.physicsBody = bodyUp
@@ -301,6 +354,11 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Create Sensor on hero for down
+    
+    - parameter whileTravellingUpOrDown: bool for if the hero is travelling up or down
+    */
     func createDownSensorPhysicsBody(#whileTravellingUpOrDown:Bool){
         
         var size:CGSize = CGSizeZero
@@ -313,6 +371,7 @@ class Hero:SKNode {
             
         }
         
+        /// set down sensor physics body properties
         nodeDown!.physicsBody = nil ///to get rid of any existing physics body
         let bodyDown:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
         nodeDown!.physicsBody = bodyDown
@@ -326,6 +385,11 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Create Sensor on hero for left
+    
+    - parameter whileTravellingRightOrLeft: if the hero is travelling right or left
+    */
     func createLeftSensorPhysicsBody(#whileTravellingRightOrLeft:Bool){
         
         var size:CGSize = CGSizeZero
@@ -338,6 +402,7 @@ class Hero:SKNode {
             
         }
         
+        /// set left sensor physics body properties
         nodeLeft!.physicsBody = nil ///to get rid of any existing physics body
         let bodyLeft:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
         nodeLeft!.physicsBody = bodyLeft
@@ -352,7 +417,11 @@ class Hero:SKNode {
     }
     
 
+    /**
+    Create Sensor on hero for right
     
+    - parameter whileTravellingRightOrLeft: if the hero is travelling right or left
+    */
     func createRightSensorPhysicsBody(#whileTravellingRightOrLeft:Bool){
         
         var size:CGSize = CGSizeZero
@@ -365,6 +434,7 @@ class Hero:SKNode {
             
         }
         
+        /// set right sensor physics body properties
         nodeRight!.physicsBody = nil ///to get rid of any existing physics body
         let bodyRight:SKPhysicsBody = SKPhysicsBody(rectangleOfSize: size)
         nodeRight!.physicsBody = bodyRight
@@ -378,6 +448,11 @@ class Hero:SKNode {
 
     //MARK: Functions for Sensor Contact: Ititated
     
+    
+    /**
+    up sensor has made contact, change up to blocked
+    if the hero is moving up, stop animation
+    */
     func upSensorContactStart(){
         
         upBlocked = true
@@ -390,6 +465,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    down sensor has made contact, change down to blocked
+    if the hero is moving down, stop animation
+    */
     func downSensorContactStart(){
         
         downBlocked = true
@@ -402,6 +481,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    left sensor has made contact, change left to blocked
+    if the hero is moving left, stop animation
+    */
     func leftSensorContactStart(){
         leftBlocked = true
         
@@ -414,6 +497,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    right sensor has made contact, change right to blocked
+    if the hero is moving right, stop animation
+    */
     func rightSensorContactStart(){
         rightBlocked = true
         
@@ -429,6 +516,10 @@ class Hero:SKNode {
     
     //MARK: Functions for Sensor Contact: Ended
     
+    /**
+    Up sensor has ended contact, unblock, 
+    if desired direction was up go up, reset desired direction
+    */
     func upSensorContactEnd(){
         upBlocked = false
         
@@ -440,6 +531,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Down sensor has ended contact, unblock,
+    if desired direction was down go down, reset desired direction
+    */
     func downSensorContactEnd(){
         downBlocked = false
         
@@ -451,6 +546,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Left sensor has ended contact, unblock,
+    if desired direction was left go left, reset desired direction
+    */
     func leftSensorContactEnd(){
         leftBlocked = false
         
@@ -463,6 +562,10 @@ class Hero:SKNode {
         
     }
     
+    /**
+    Right sensor has ended contact, unblock,
+    if desired direction was right go right, reset desired direction
+    */
     func rightSensorContactEnd(){
         rightBlocked = false
         

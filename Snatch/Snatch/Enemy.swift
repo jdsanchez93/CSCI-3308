@@ -23,6 +23,13 @@ class Enemy: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+    Init from SKS with a specific name
+    
+    - parameter image: name of image to be used as icon
+    
+    - returns: enemy sprite with icon of image
+    */
     init (fromSKSWithImage image:String) {
         
         super.init()
@@ -38,7 +45,7 @@ class Enemy: SKNode {
     
     - parameter theDict: Dictionary of attributes for each jewel from tmx file
     
-    - returns: enemies with correct coordinates
+    - returns: enemies with correct coordinates and image icons
     */
     init (theDict:Dictionary<NSObject, AnyObject>){
         

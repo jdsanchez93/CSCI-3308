@@ -45,6 +45,9 @@ class Boundary:SKNode {
         
         var isEdge:Bool
         
+        /**
+        *  if the boundary to be created is an edge, set isEdge to true
+        */
         if(isEdgeAsString == "true") {
             isEdge = true
             
@@ -52,8 +55,9 @@ class Boundary:SKNode {
             
             isEdge = false
         }
-
-        let theX:String = theDict["x"] as AnyObject? as! String ///as! because swift is weird...
+        
+        /// set the location and dimenstions of the boundary object in the scene
+        let theX:String = theDict["x"] as AnyObject? as! String
         let x:Int = theX.toInt()!
         
         let theY:String = theDict["y"] as AnyObject? as! String
@@ -68,6 +72,12 @@ class Boundary:SKNode {
         let location:CGPoint = CGPoint(x: x, y: y * -1) ///use -1 because the grid is set up with 0,0 at the top left instead of the bottom left.
         let size:CGSize = CGSize(width: width, height: height)
         
+        /**
+        set position
+        
+        - parameter x: x component of location plus half the width of the object
+        - parameter y: y component of location plus half the height of the object
+        */
         self.position = CGPoint(x: location.x + (size.width / 2), y: (location.y - size.height/2))
         let rect:CGRect = CGRectMake(-(size.width/2), -(size.height/2), size.width, size.height)
         
@@ -75,19 +85,24 @@ class Boundary:SKNode {
         
         
     }
-
+    /**
+    Create a boundary, set physics of boundary
+    
+    - parameter rect:         boundary as a rectangle
+    - parameter createAsEdge: whether or not the boundary is the edge
+    */
     func createBoundary(rect:CGRect, createAsEdge:Bool){
- /// Create a boundary, set physics of boundary
+
         
         let shape = SKShapeNode(rect: rect, cornerRadius: 19)
-        shape.fillColor = SKColor.clearColor() //sets the color of the boundary
-        shape.strokeColor = SKColor.whiteColor()
+        shape.fillColor = SKColor.clearColor() //sets the fill color of the boundary
+        shape.strokeColor = SKColor.whiteColor() //sets outline color of boundary
         shape.lineWidth = 1
         
         addChild(shape)
         
         /**
-        *  create as an edge
+        *  create as an edge if the input value isEdge is true
         */
         
         if (createAsEdge == false) {
