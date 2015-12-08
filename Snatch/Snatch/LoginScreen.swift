@@ -13,9 +13,11 @@ class LoginScreen: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    /**
+    Do any additional setup after loading the view
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view
         let value = UIInterfaceOrientation.Portrait.rawValue;
         UIDevice.currentDevice().setValue(value, forKey: "orientation");
         
@@ -25,21 +27,30 @@ class LoginScreen: UIViewController {
         return true;
     }
     
+    /**
+    Dispose of any resources that can be recreated.
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be recreated.
     }
     
+    /**
+    Check if login button was tapped
+    
+    - parameter sender: should be a tap
+    */
     @IBAction func loginButtonTapped(sender: AnyObject) {
         let username = usernameTextField.text;
         let password = passwordTextField.text;
         
-        //Make sure password isn't empty
+        /**
+        *  Make sure password isn't empty
+        */
         if(password.isEmpty) {
             return;
         }
         
-        //Send user data to server
+        ///Send user data to server
         let myUrl = NSURL(string: "http://caramel-howl-113305.appspot.com/userLogin.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
@@ -48,7 +59,7 @@ class LoginScreen: UIViewController {
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
-        //Execute http post request
+        ///Execute http post request
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -65,7 +76,7 @@ class LoginScreen: UIViewController {
                 println("result: \(resultValue)");
                 
                 if(resultValue == "Success") {
-                    //Login is successful
+                    ///Login is successful
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isUserLoggedIn");
                     NSUserDefaults.standardUserDefaults().synchronize();
                     

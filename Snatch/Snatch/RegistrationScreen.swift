@@ -15,17 +15,29 @@ class RegisterScreen: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     
-    
+    /**
+    Init screen
+    Do any additional setup after loading the view.
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Do any additional setup after loading the view.
+        
     }
     
+    /**
+    Check if memory warning was received
+    Dispose of any resources that can be recreated.
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be recreated.
+        
     }
     
+    /**
+    Check if register button was tapped
+    
+    - parameter sender: button tap
+    */
     @IBAction func registerButtonTapped(sender: AnyObject) {
         
         let userEmail = userEmailTextField.text;
@@ -33,21 +45,21 @@ class RegisterScreen: UIViewController {
         let password = passwordTextField.text;
         let repeatPassword = repeatPasswordTextField.text;
         
-        //Check for empty fields
+        ///Check for empty fields
         if(userEmail.isEmpty || password.isEmpty || repeatPassword.isEmpty) {
-            //Display alert message
+            ///Display alert message
             displayMyAlertMessage("All fields are required");
             return;
         }
         
-        //Check if passwords match
+        ///Check if passwords match
         if(password != repeatPassword) {
-            //Display an alert message
+            ///Display an alert message
             displayMyAlertMessage("Passwords do not match");
             return;
         }
         
-        //Send user data to server
+        ///Send user data to server
         let myUrl = NSURL(string: "http://caramel-howl-113305.appspot.com/userRegister.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
@@ -57,7 +69,7 @@ class RegisterScreen: UIViewController {
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
-        //Execute http post request
+        ///Execute http post request
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -71,6 +83,7 @@ class RegisterScreen: UIViewController {
             
             println("json=\(json)");
             
+            /// parse json to check status
             if let parseJSON = json {
                 var resultValue = parseJSON["status"] as? String;
                 println("result: \(resultValue)");
@@ -86,7 +99,7 @@ class RegisterScreen: UIViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    //Display alert message with ocnfirmation.
+                    ///Display alert message with confirmation.
                     var myAlert = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: UIAlertControllerStyle.Alert);
                     
                     let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { action in
@@ -103,6 +116,11 @@ class RegisterScreen: UIViewController {
         
     }
     
+    /**
+    Display any alert messages
+    
+    - parameter userMessage: message to be displayed
+    */
     func displayMyAlertMessage(userMessage:String) {
         var myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.Alert);
         let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil);
