@@ -9,12 +9,28 @@
 import Foundation
 import SpriteKit
 
+/**
+Direction of hero relative to enemy
+
+- Southwest: hero is southwest of enemy
+- Southeast: hero is southeast of enemy
+- Northwest: hero is northwest of enemy
+- Northeast: hero is northeast of enemy
+*/
 enum HeroIs {
     
     case Southwest, Southeast, Northwest, Northeast
     
 }
 
+/**
+Current enemy direction
+
+- Up:    Enemy is moving Up
+- Down:  Enemy is moving Down
+- Left:  Enemy is moving Left
+- Right: Enemy is moving Right
+*/
 enum EnemyDirection {
     
     case Up, Down, Left, Right
@@ -136,6 +152,9 @@ class Enemy: SKNode {
         
         previousLocation2 = previousLocation1
         
+        /**
+        *  if the current direction of the enemy is up, update position to continue towards hero
+        */
         if(currentDirection == .Up){
             self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
             
@@ -148,6 +167,9 @@ class Enemy: SKNode {
             
         }
         
+        /**
+        *  if the current direction of the enemy is down, update position to continue towards hero
+        */
         if(currentDirection == .Down){
             self.position = CGPoint(x: self.position.x, y: self.position.y - CGFloat(enemySpeed))
             
@@ -159,6 +181,9 @@ class Enemy: SKNode {
             
         }
         
+        /**
+        *  if the current direction of the enemy is left, update position to continue towards hero
+        */
         if(currentDirection == .Left){
             self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
             
@@ -170,6 +195,9 @@ class Enemy: SKNode {
             
         }
         
+        /**
+        *  if the current direction of the enemy is right, update position to continue towards hero
+        */
         if(currentDirection == .Right){
             self.position = CGPoint(x: self.position.x, y: self.position.y + CGFloat(enemySpeed))
             
