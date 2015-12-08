@@ -28,7 +28,6 @@
 		6386A4081BEFF68F00C3417E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4061BEFF68F00C3417E /* Main.storyboard */; };
 		6386A40A1BEFF68F00C3417E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4091BEFF68F00C3417E /* Images.xcassets */; };
 		6386A40D1BEFF68F00C3417E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6386A40B1BEFF68F00C3417E /* LaunchScreen.xib */; };
-		6386A4231BEFF8A800C3417E /* moving.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6386A4221BEFF8A800C3417E /* moving.atlas */; };
 		6386A4261BEFFDBA00C3417E /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4251BEFFDBA00C3417E /* Hero.swift */; };
 		6386E6941BF2D4E9006E6532 /* Boundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386E6931BF2D4E9006E6532 /* Boundary.swift */; };
 		6386E6D71BF2EFEB006E6532 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386A4251BEFFDBA00C3417E /* Hero.swift */; };
@@ -67,7 +66,6 @@
 		6386A4121BEFF68F00C3417E /* SnatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6386A4171BEFF68F00C3417E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6386A4181BEFF68F00C3417E /* SnatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnatchTests.swift; path = SnatchTests/SnatchTests.swift; sourceTree = SOURCE_ROOT; };
-		6386A4221BEFF8A800C3417E /* moving.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = moving.atlas; path = ../../../Downloads/Maze_Game_Assets/moving.atlas; sourceTree = "<group>"; };
 		6386A4251BEFFDBA00C3417E /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		6386E6931BF2D4E9006E6532 /* Boundary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Boundary.swift; sourceTree = "<group>"; };
 		7D1E3EAD1C156B5F007F8363 /* Jewel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jewel.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				6326CF621BF14BAC005C4F55 /* walking.atlas */,
-				6386A4221BEFF8A800C3417E /* moving.atlas */,
 			);
 			name = Texture_Atlases;
 			sourceTree = "<group>";
@@ -255,7 +252,6 @@
 				7DDE4DF61C14AE0900564440 /* MazeType1.tmx in Resources */,
 				6326CF631BF14BAC005C4F55 /* walking.atlas in Resources */,
 				6386A4011BEFF68F00C3417E /* GameScene.sks in Resources */,
-				6386A4231BEFF8A800C3417E /* moving.atlas in Resources */,
 				6386A4081BEFF68F00C3417E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

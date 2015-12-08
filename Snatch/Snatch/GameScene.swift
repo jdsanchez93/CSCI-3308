@@ -297,7 +297,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
     */
     override func update(currentTime: CFTimeInterval) {
         
+        if (heroIsDead == false){
+        
         hero!.update()
+            
+        mazeWorld!.enumerateChildNodesWithName("enemy*"){
+            node, stop in
+                
+            /// if enemy is to the bottom left go southwest
+            if let enemy = node as? Enemy {
+                
+                enemy.update()
+                
+                }
+            }
+            
+        } else {
+            hero!.position = heroLocation
+            heroIsDead = false
+        }
         
     }
     
@@ -604,8 +622,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
         
     }
     
+    //MARK: Enemy Stuffs
     
+    /**
+    *  Tells the enemies where the hero is
+    *
+    *  @return hero location
+    */
+    func tellEnemiesWhereHeroIs () {
+        
+        let enemyAction:SKAction = SKAction.waitForDuration(5)///checks every 5 seconds
+        
+        self.runAction(enemyAction, completion: {
+         
+            self.tellEnemiesWhereHeroIs()
+            
+        })
+        
+        
+        /**
+        *  compare hero location to enemy location
+        */
+        mazeWorld!.enumerateChildNodesWithName("enemy*"){
+            node, stop in
+            
+            /// if enemy is to the bottom left go southwest
+            if let enemy = node as? Enemy {
+                if (self.hero!.position.x < enemy.position.x && self.hero!.position.y < enemy.position.y){
+                    
+                    enemy.heroLocationIs = .Southwest
+                }
+            }
+                /// if enemy is to the bottom right go southeast
+            else if let enemy = node as? Enemy {
+                 if (self.hero!.position.x > enemy.position.x && self.hero!.position.y < enemy.position.y){
+                    
+                     enemy.heroLocationIs = .Southeast
+                    }
+                
+                }
+                /// if enemy is to the bottom left go northwest
+            else if let enemy = node as? Enemy {
+                    if (self.hero!.position.x < enemy.position.x && self.hero!.position.y > enemy.position.y){
+                        
+                        enemy.heroLocationIs = .Northwest
+                    }
+            
+                }
+                /// if enemy is to the bottom left go northeast
+            else if let enemy = node as? Enemy {
+                    if (self.hero!.position.x > enemy.position.x && self.hero!.position.y > enemy.position.y){
+                        
+                        enemy.heroLocationIs = .Northeast
+                }
+            }
     
+        }
+    }
     
 }
 
