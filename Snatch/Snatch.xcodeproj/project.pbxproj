@@ -40,6 +40,9 @@
 		7D28BCF61C16D33F00DB69A4 /* MazeType2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 7D28BCF51C16D33F00DB69A4 /* MazeType2.tmx */; };
 		7DB388731C169F6E00F3741A /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD37D71C169C0700E15733 /* Enemy.swift */; };
 		7DCD37D81C169C0700E15733 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD37D71C169C0700E15733 /* Enemy.swift */; };
+		7DD767791C16D63B00B6A3B6 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD767781C16D63B00B6A3B6 /* LoginScreen.swift */; };
+		7DD7677B1C16D65A00B6A3B6 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7677A1C16D65A00B6A3B6 /* MenuScreen.swift */; };
+		7DD7677D1C16D68800B6A3B6 /* RegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7677C1C16D68800B6A3B6 /* RegistrationScreen.swift */; };
 		7DDE4DF61C14AE0900564440 /* MazeType1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 7DDE4DF51C14AE0900564440 /* MazeType1.tmx */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +75,10 @@
 		7D1E3EAD1C156B5F007F8363 /* Jewel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jewel.swift; sourceTree = "<group>"; };
 		7D28BCF51C16D33F00DB69A4 /* MazeType2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MazeType2.tmx; sourceTree = "<group>"; };
 		7DCD37D71C169C0700E15733 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
-		7DDE4DF51C14AE0900564440 /* MazeType1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = MazeType1.tmx; path = ../../../Downloads/Maze_Game_Assets/MazeType1.tmx; sourceTree = "<group>"; };
+		7DD767781C16D63B00B6A3B6 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		7DD7677A1C16D65A00B6A3B6 /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		7DD7677C1C16D68800B6A3B6 /* RegistrationScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationScreen.swift; sourceTree = "<group>"; };
+		7DDE4DF51C14AE0900564440 /* MazeType1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MazeType1.tmx; path = ../../../Downloads/Maze_Game_Assets/MazeType1.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,9 @@
 		6386A3FB1BEFF68F00C3417E /* Snatch */ = {
 			isa = PBXGroup;
 			children = (
+				7DD767781C16D63B00B6A3B6 /* LoginScreen.swift */,
+				7DD7677A1C16D65A00B6A3B6 /* MenuScreen.swift */,
+				7DD7677C1C16D68800B6A3B6 /* RegistrationScreen.swift */,
 				7D28BCF51C16D33F00DB69A4 /* MazeType2.tmx */,
 				7DCD37D71C169C0700E15733 /* Enemy.swift */,
 				7DDE4DF51C14AE0900564440 /* MazeType1.tmx */,
@@ -274,11 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD7677B1C16D65A00B6A3B6 /* MenuScreen.swift in Sources */,
 				7DCD37D81C169C0700E15733 /* Enemy.swift in Sources */,
+				7DD7677D1C16D68800B6A3B6 /* RegistrationScreen.swift in Sources */,
 				6386A4031BEFF68F00C3417E /* GameScene.swift in Sources */,
 				6386A4051BEFF68F00C3417E /* GameViewController.swift in Sources */,
 				6386A3FF1BEFF68F00C3417E /* AppDelegate.swift in Sources */,
 				7D1E3EAE1C156B5F007F8363 /* Jewel.swift in Sources */,
+				7DD767791C16D63B00B6A3B6 /* LoginScreen.swift in Sources */,
 				6386A4261BEFFDBA00C3417E /* Hero.swift in Sources */,
 				6386E6941BF2D4E9006E6532 /* Boundary.swift in Sources */,
 			);

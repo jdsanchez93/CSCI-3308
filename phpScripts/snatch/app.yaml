@@ -1,0 +1,22 @@
+application: snatch
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: main.php
+
+- url: /MySQLDao.php
+  script: MySQLDao.php
+
+- url: /userLogin.php
+  script: userLogin.php
+
+- url: /userRegister.php
+  script: userRegister.php
