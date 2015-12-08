@@ -213,7 +213,7 @@
   <object id="228" type="Jewel" x="870" y="570" width="10" height="10"/>
   <object id="230" type="Jewel" x="830" y="570" width="10" height="10"/>
   <object id="231" type="Jewel" x="770" y="530" width="10" height="10"/>
-  <object id="232" name="enemy_opponent" type="Enemy" x="250" y="390" width="20" height="20"/>
+  <object id="232" name="enemy_Opponent" type="Enemy" x="250" y="390" width="20" height="20"/>
   <object id="234" type="Jewel" x="1090" y="750" width="10" height="10"/>
   <object id="237" type="Boundary" x="600" y="190" width="50" height="110"/>
   <object id="238" type="Boundary" x="700" y="190" width="60" height="110"/>
