@@ -148,7 +148,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, NSXMLParserDelegate{
             
         }
         else{
-            parseTMXFileWithName("MazeType1")
+            parseTMXFileWithName("MazeType2")
     
         }
        
